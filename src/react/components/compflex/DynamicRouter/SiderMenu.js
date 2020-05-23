@@ -2,22 +2,22 @@ import React from "react";
 import { Menu } from "antd";
 import { Link } from "react-router-dom";
 
-const SiderMenu = ({ routerConfig }) => {
-  const renderMenuItem = (data) => {
-    if (data.children && data.children.length > 0) {
+const SiderMenu = ({ menus }) => {
+  const renderMenuItem = (menu) => {
+    if (menu.children && menu.children.length > 0) {
       const renderChildrenItems = [];
-      for (const child of data.children) {
+      for (const child of menu.children) {
         renderChildrenItems.push(renderMenuItem(child));
       }
       return (
-        <Menu.SubMenu key={data.path} title={data.title}>
+        <Menu.SubMenu key={menu.path} title={menu.title}>
           {renderChildrenItems}
         </Menu.SubMenu>
       );
     } else {
       return (
-        <Menu.Item key={data.path}>
-          <Link to={data.path}>{data.title}</Link>
+        <Menu.Item key={menu.url}>
+          <Link to={menu.url}>{menu.title}</Link>
         </Menu.Item>
       );
     }
@@ -25,7 +25,7 @@ const SiderMenu = ({ routerConfig }) => {
 
   return (
     <Menu mode="inline" defaultSelectedKeys={["react"]}>
-      {routerConfig.map((item) => renderMenuItem(item))}
+      {menus.map((menu) => renderMenuItem(menu))}
     </Menu>
   );
 };

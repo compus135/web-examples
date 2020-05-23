@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { Layout } from "antd";
-import { routerConfig } from "./routerConfig";
+import getFormatMenus from "./getFormatMenus";
 import Routes from "./Routes";
 import SiderMenu from "./SiderMenu";
 
@@ -12,7 +12,7 @@ function DynamicRouter() {
       <Layout>
         <Layout>
           <Sider className="App-sider">
-            <SiderMenu routerConfig={routerConfig} />
+            <SiderMenu menus={getFormatMenus()} />
           </Sider>
 
           <Content className="App-content" style={{ padding: "24px" }}>
