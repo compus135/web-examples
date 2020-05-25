@@ -7,13 +7,13 @@ import SiderMenu from "./SiderMenu";
 const { Sider, Content } = Layout;
 function DynamicRouter() {
   return (
-    <Layout>
+    <Layout style={{ minHeight: 200 }}>
       <Layout>
-        <Sider className="App-sider">
+        <Sider>
           <SiderMenu menus={getFormatMenus()} />
         </Sider>
 
-        <Content className="App-content" style={{ padding: "24px" }}>
+        <Content>
           <Routes />
         </Content>
       </Layout>

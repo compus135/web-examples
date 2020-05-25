@@ -37,6 +37,7 @@ const getFormatMenus = () => {
   ];
   /**
    * 根据树状结构的menu数据，叶子节点添加url
+   * url由祖先节点的path和当前节点的path组成
    * @param {*} parentPath 父节点的路径
    * @param {*} menu 树状结构的数据
    */
