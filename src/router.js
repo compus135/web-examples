@@ -1,6 +1,4 @@
-import Test from "./react/test/Test";
-
-const routerConfig = [
+const menus = [
   {
     path: "react",
     title: "react",
@@ -13,8 +11,8 @@ const routerConfig = [
             path: "subscribe",
             title: "mouse",
             children: [
-              { path: "demo1", title: "demo1例子", component: Test },
-              { path: "demo12", title: "demo12", component: Test },
+              { path: "demo1", title: "demo1例子" },
+              { path: "demo12", title: "demo12" },
             ],
           },
         ],
@@ -24,12 +22,35 @@ const routerConfig = [
   {
     path: "js",
     title: "js",
+    children: [
+      { path: "demo1", title: "demo1例子" },
+      { path: "demo12", title: "demo12" },
+    ],
   },
 ];
 
-const mapRouteComponent = (data) => {
-  for (const iterator of routerConfig) {
+const getMenusWithUrl = (menus) => {
+  /**
+   * 根据树状结构的menu数据，叶子节点添加url
+   * url由祖先节点的path和当前节点的path组成
+   * @param {*} parentPath 父节点的路径
+   * @param {*} menu 树状结构的数据
+   */
+  const addUrlForMenu = (parentPath, menu) => {
+    let path = menu.path;
+    if (menu.children) {
+      for (const child of menu.children) {
+        addUrlForMenu(parentPath + "/" + path, child);
+      }
+    } else {
+      menu.url = parentPath + "/" + path;
+    }
+  };
+
+  for (const menu of menus) {
+    addUrlForMenu("", menu);
   }
+  return menus;
 };
 
-export { routerConfig };
+export { menus, getMenusWithUrl };
