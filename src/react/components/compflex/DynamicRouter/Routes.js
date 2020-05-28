@@ -4,10 +4,11 @@ import ReactHocExample01 from "./pages/ReactHocExample01";
 import ReactHocExample02 from "./pages/ReactHocExample02";
 import VueExample01 from "./pages/VueExample01";
 
+const rootUrl = "/react/components/compflex/dynamicRouter";
 const routes = {
-  "/react/hoc/examples/example01": ReactHocExample01,
-  "/react/hoc/examples/example02": ReactHocExample02,
-  "/vue/example01": VueExample01,
+  [`${rootUrl}/react/hoc/examples/example01`]: ReactHocExample01,
+  [`${rootUrl}/react/hoc/examples/example02`]: ReactHocExample02,
+  [`${rootUrl}/vue/example01`]: VueExample01,
 };
 function Routes() {
   return (

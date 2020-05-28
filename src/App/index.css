@@ -9,11 +9,13 @@
 .App-sider {
   min-height: calc(100vh - 64px);
   background: #fff;
+  border-right: 1px solid #e8e8e8;
 }
 
 .App-content {
-  min-height: calc(100vh - 144px);
+  min-height: calc(100vh - 64px);
   background: #fff;
+  padding: 24px;
 }
 .App {
   text-align: center;

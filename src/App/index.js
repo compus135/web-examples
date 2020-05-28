@@ -1,8 +1,8 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Switch, Redirect } from "react-router-dom";
 import { Layout, Breadcrumb } from "antd";
 import "./index.css";
-import { menus, getMenusWithUrl } from "../router";
+import { menus, getMenusWithUrl, getRenderRoutes } from "../router";
 import MainMenu from "./MainMenu";
 import SiderMenu from "./SiderMenu";
 
@@ -20,11 +20,11 @@ function App() {
           <Sider className="App-sider">
             <SiderMenu menus={menusWithUrl} />
           </Sider>
-          <Layout style={{ padding: "0 24px 24px" }}>
-            <Breadcrumb style={{ lineHeight: "56px" }}> f</Breadcrumb>
+          <Layout>
             <Content className="App-content">
               <Switch>
-                <Route path="/" component={() => "test"} />
+                <Redirect exact from="/" to="/react"></Redirect>
+                {getRenderRoutes(menus)}
               </Switch>
             </Content>
           </Layout>

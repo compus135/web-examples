@@ -2,11 +2,12 @@ import React from "react";
 import { Menu } from "antd";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
+import { getMainMenuPath } from "./appHelper";
 
 const SiderMenu = ({ menus, location: { pathname } }) => {
   const getSiderMenus = () => {
     const menu = menus.find((menu) => pathname.indexOf(menu.path) === 1);
-    return menu.children || [];
+    return (menu && menu.children) || [];
   };
   const renderMenuItem = (menu) => {
     if (menu.children && menu.children.length > 0) {
@@ -29,7 +30,7 @@ const SiderMenu = ({ menus, location: { pathname } }) => {
   };
 
   return (
-    <Menu mode="inline" defaultSelectedKeys={["react"]}>
+    <Menu mode="inline" key={getMainMenuPath(pathname)}>
       {getSiderMenus().map((menu) => renderMenuItem(menu))}
     </Menu>
   );

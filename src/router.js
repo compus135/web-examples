@@ -1,8 +1,28 @@
+import React from "react";
+import { Route } from "react-router-dom";
+import DynamicRouter from "./react/components/compflex/DynamicRouter/index";
 const menus = [
   {
     path: "react",
     title: "react",
     children: [
+      {
+        path: "components",
+        title: "组件",
+        children: [
+          {
+            path: "compflex",
+            title: "复杂组件",
+            children: [
+              {
+                path: "dynamicRouter",
+                title: "动态路由",
+                component: DynamicRouter,
+              },
+            ],
+          },
+        ],
+      },
       {
         path: "hoc",
         title: "高阶组件",
@@ -53,4 +73,26 @@ const getMenusWithUrl = (menus) => {
   return menus;
 };
 
-export { menus, getMenusWithUrl };
+const getRenderRoutes = (menus) => {
+  const renderRoutes = [];
+  const visitMenuComponents = (menu) => {
+    if (menu.children && menu.children.length) {
+      for (const subMenu of menu.children) {
+        visitMenuComponents(subMenu);
+      }
+    } else {
+      if (menu.component) {
+        renderRoutes.push(
+          <Route key={menu.url} path={menu.url} component={menu.component} />
+        );
+      }
+    }
+  };
+  for (const menu of menus) {
+    visitMenuComponents(menu);
+  }
+  console.log(renderRoutes);
+  return renderRoutes;
+};
+
+export { menus, getMenusWithUrl, getRenderRoutes };

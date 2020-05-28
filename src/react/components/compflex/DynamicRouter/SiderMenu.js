@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const SiderMenu = ({ menus }) => {
   const renderMenuItem = (menu) => {
+    const rootUrl = "/react/components/compflex/dynamicRouter";
     if (menu.children && menu.children.length > 0) {
       const renderChildrenItems = [];
       for (const child of menu.children) {
@@ -17,7 +18,7 @@ const SiderMenu = ({ menus }) => {
     } else {
       return (
         <Menu.Item key={menu.url}>
-          <Link to={menu.url}>{menu.title}</Link>
+          <Link to={rootUrl + menu.url}>{menu.title}</Link>
         </Menu.Item>
       );
     }
