@@ -1,21 +1,40 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import ReactHocExample01 from "./pages/ReactHocExample01";
-import ReactHocExample02 from "./pages/ReactHocExample02";
-import VueExample01 from "./pages/VueExample01";
+import routes from "./routerConfig";
 
-const rootUrl = "/react/components/compflex/dynamicRouter";
-const routes = {
-  [`${rootUrl}/react/hoc/examples/example01`]: ReactHocExample01,
-  [`${rootUrl}/react/hoc/examples/example02`]: ReactHocExample02,
-  [`${rootUrl}/vue/example01`]: VueExample01,
-};
-function Routes() {
+function Routes({ menus }) {
+  const getValidPages = (menus) => {
+    const pages = [];
+    const visitMenu = (menu) => {
+      if (menu.children) {
+        for (const child of menu.children) {
+          visitMenu(child);
+        }
+      } else {
+        pages.push(menu.page);
+      }
+    };
+    for (const menu of menus) {
+      visitMenu(menu);
+    }
+    return pages;
+  };
+  const validPages = getValidPages(menus);
+  const filterRoutes = [];
+  for (const page of Object.keys(routes)) {
+    validPages.includes(page) && filterRoutes.push(routes[page]);
+  }
+  console.log(filterRoutes);
   return (
     <Switch>
-      {Object.keys(routes).map((path) => {
-        console.log(path);
-        return <Route key={path} path={path} component={routes[path]} />;
+      {Object.keys(filterRoutes).map((page) => {
+        return (
+          <Route
+            key={page}
+            path={routes[page].path}
+            component={routes[page].component}
+          />
+        );
       })}
     </Switch>
   );

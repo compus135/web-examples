@@ -91,7 +91,7 @@ const getRenderRoutes = (menus) => {
   for (const menu of menus) {
     visitMenuComponents(menu);
   }
-  console.log(renderRoutes);
+
   return renderRoutes;
 };
 

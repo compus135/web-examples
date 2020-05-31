@@ -1,6 +1,6 @@
 import React from "react";
 import { Layout } from "antd";
-import getFormatMenus from "./getFormatMenus";
+import menus from "./fakeMenus";
 import Routes from "./Routes";
 import SiderMenu from "./SiderMenu";
 
@@ -10,11 +10,11 @@ function DynamicRouter() {
     <Layout style={{ minHeight: 500 }}>
       <Layout>
         <Sider>
-          <SiderMenu menus={getFormatMenus()} />
+          <SiderMenu menus={menus} />
         </Sider>
 
         <Content>
-          <Routes />
+          <Routes menus={menus} />
         </Content>
       </Layout>
     </Layout>

@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Redirect } from "react-router-dom";
-import { Layout, Breadcrumb } from "antd";
+import { Layout } from "antd";
 import "./index.css";
 import { menus, getMenusWithUrl, getRenderRoutes } from "../router";
 import MainMenu from "./MainMenu";
