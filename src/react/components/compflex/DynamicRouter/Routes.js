@@ -20,11 +20,11 @@ function Routes({ menus }) {
     return pages;
   };
   const validPages = getValidPages(menus);
-  const filterRoutes = [];
+  const filterRoutes = {};
   for (const page of Object.keys(routes)) {
-    validPages.includes(page) && filterRoutes.push(routes[page]);
+    if (validPages.includes(page)) filterRoutes[page] = routes[page];
   }
-  console.log(filterRoutes);
+
   return (
     <Switch>
       {Object.keys(filterRoutes).map((page) => {
