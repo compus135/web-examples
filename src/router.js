@@ -1,6 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import DynamicRouter from "./react/components/compflex/DynamicRouter/index";
+import Memoization from "./react/apiReference/component/getDerivedStateFromProps/Memoization";
 const menus = [
   {
     path: "react",
@@ -24,15 +25,18 @@ const menus = [
         ],
       },
       {
-        path: "hoc",
-        title: "高阶组件",
+        path: "apiReference",
+        title: "API",
         children: [
           {
-            path: "subscribe",
-            title: "mouse",
+            path: "component",
+            title: "component",
             children: [
-              { path: "demo1", title: "demo1例子" },
-              { path: "demo12", title: "demo12" },
+              {
+                path: "getderivedstate",
+                title: "getderivedstate",
+                component: Memoization,
+              },
             ],
           },
         ],
