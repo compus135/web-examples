@@ -2,6 +2,8 @@ import React from "react";
 import { Route } from "react-router-dom";
 import DynamicRouter from "./react/components/compflex/DynamicRouter/index";
 import Memoization from "./react/apiReference/component/getDerivedStateFromProps/Memoization";
+import ReComputeInRender from "./react/bestPractice/state/recomputeData/ReComputeInRender";
+import ReComputeInRenderUseMemoize from "./react/bestPractice/state/recomputeData/ReComputeInRenderUseMemoization";
 const menus = [
   {
     path: "react",
@@ -26,16 +28,45 @@ const menus = [
       },
       {
         path: "apiReference",
-        title: "API",
+        title: "API REFERENCE",
         children: [
           {
             path: "component",
             title: "component",
             children: [
               {
-                path: "getderivedstate",
-                title: "getderivedstate",
+                path: "getDerivedStateFromProps",
+                title: "getDerivedStateFromProps",
                 component: Memoization,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        path: "bestPractice",
+        title: "最佳实践",
+        children: [
+          {
+            path: "state",
+            title: "state设计",
+            children: [
+              {
+                path: "recomputeData",
+                title: "重新计算数据当prop改变",
+
+                children: [
+                  {
+                    path: "recomputeData",
+                    title: "In Render",
+                    component: ReComputeInRender,
+                  },
+                  {
+                    path: "recomputeDataUseMemoize",
+                    title: "Use Memoize",
+                    component: ReComputeInRenderUseMemoize,
+                  },
+                ],
               },
             ],
           },
