@@ -4,6 +4,8 @@ import DynamicRouter from "./react/components/compflex/DynamicRouter/index";
 import Memoization from "./react/apiReference/component/getDerivedStateFromProps/Memoization";
 import ReComputeInRender from "./react/bestPractice/state/recomputeData/ReComputeInRender";
 import ReComputeInRenderUseMemoize from "./react/bestPractice/state/recomputeData/ReComputeInRenderUseMemoization";
+import AsyncComponentDidMount from "./react/apiReference/component/componentDidMount/Async";
+import HocTest from "./test/hoc/Test";
 const menus = [
   {
     path: "react",
@@ -35,9 +37,9 @@ const menus = [
             title: "component",
             children: [
               {
-                path: "getDerivedStateFromProps",
-                title: "getDerivedStateFromProps",
-                component: Memoization,
+                path: "componentDidMount",
+                title: "componentDidMount",
+                component: AsyncComponentDidMount,
               },
             ],
           },
@@ -75,12 +77,9 @@ const menus = [
     ],
   },
   {
-    path: "js",
-    title: "js",
-    children: [
-      { path: "demo1", title: "demo1例子" },
-      { path: "demo12", title: "demo12" },
-    ],
+    path: "test",
+    title: "临时测试代码",
+    children: [{ path: "hoc", title: "hoc例子", component: HocTest }],
   },
 ];
 
