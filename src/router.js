@@ -1,7 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import DynamicRouter from "./react/components/compflex/DynamicRouter/index";
-import Memoization from "./react/apiReference/component/getDerivedStateFromProps/Memoization";
+//import Memoization from "./react/apiReference/component/getDerivedStateFromProps/Memoization";
 import ReComputeInRender from "./react/bestPractice/state/recomputeData/ReComputeInRender";
 import ReComputeInRenderUseMemoize from "./react/bestPractice/state/recomputeData/ReComputeInRenderUseMemoization";
 import AsyncComponentDidMount from "./react/apiReference/component/componentDidMount/Async";
