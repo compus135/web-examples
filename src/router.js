@@ -6,6 +6,10 @@ import ReComputeInRender from "./react/bestPractice/state/recomputeData/ReComput
 import ReComputeInRenderUseMemoize from "./react/bestPractice/state/recomputeData/ReComputeInRenderUseMemoization";
 import AsyncComponentDidMount from "./react/apiReference/component/componentDidMount/Async";
 import HocTest from "./test/hoc/Test";
+import UnControlledComponentWithKey from "./react/bestPractice/state/resetStateWhenPropChange/UnControlledComponentWithKey";
+import FullyControlledComponent from "./react/bestPractice/state/resetStateWhenPropChange/FullyControlledComponent";
+import InComponentWillReceiveProps from "./react/bestPractice/state/fetchExternalDataWhenPropChange/InComponentWillReceiveProps";
+import InComponentDidUpdate from "./react/bestPractice/state/fetchExternalDataWhenPropChange/InComponentDidUpdate";
 const menus = [
   {
     path: "react",
@@ -67,6 +71,39 @@ const menus = [
                     path: "recomputeDataUseMemoize",
                     title: "Use Memoize",
                     component: ReComputeInRenderUseMemoize,
+                  },
+                ],
+              },
+              {
+                path: "resetStateWhenPropChange",
+                title: "prop改变重置state",
+
+                children: [
+                  {
+                    path: "unControlledComponentWithKey",
+                    title: "有key的非可控组件",
+                    component: UnControlledComponentWithKey,
+                  },
+                  {
+                    path: "fullyControlledComponent",
+                    title: "完全受控组件",
+                    component: FullyControlledComponent,
+                  },
+                ],
+              },
+              {
+                path: "fetchExternalDataWhenPropChange",
+                title: "获取外部数据当prop改变",
+                children: [
+                  {
+                    path: "InComponentWillReceiveProps",
+                    title: "在ComponentWillReceiveProps中获取数据",
+                    component: InComponentWillReceiveProps,
+                  },
+                  {
+                    path: "InComponentDidUpdate",
+                    title: "在ComponentDidUpdate中获取数据",
+                    component: InComponentDidUpdate,
                   },
                 ],
               },

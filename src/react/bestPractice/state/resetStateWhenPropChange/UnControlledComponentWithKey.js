@@ -3,8 +3,9 @@ import { Input } from "antd";
 
 class EditStudentInfo extends React.Component {
   state = {
-    address: this.props.defaultInfo.address,
-    email: this.props.defaultInfo.email,
+    name: this.props.defaultStudent.name,
+    address: this.props.defaultStudent.address,
+    email: this.props.defaultStudent.email,
   };
   handleChangeAddress = (e) => {
     this.setState({ address: e.target.value });
@@ -13,9 +14,10 @@ class EditStudentInfo extends React.Component {
     this.setState({ email: e.target.value });
   };
   render() {
-    const { address, email } = this.state;
+    const { name, address, email } = this.state;
     return (
       <div>
+        <h2>姓名：{name}</h2>
         地址：
         <Input value={address} onChange={this.handleChangeAddress}></Input>
         邮箱：<Input value={email} onChange={this.handleChangeEmail}></Input>
@@ -26,7 +28,7 @@ class EditStudentInfo extends React.Component {
 
 class StudentList extends React.Component {
   state = {
-    currentStudent: null,
+    currentStudent: {},
   };
   studentList = [
     {
@@ -52,10 +54,10 @@ class StudentList extends React.Component {
     this.setState({ currentStudent: student });
   };
   render() {
-    const { currentStudentId } = this.state;
+    const { currentStudent } = this.state;
     return (
       <div style={{ display: "flex" }}>
-        <ul>
+        <ul style={{ background: "#ccc", padding: 16, marginRight: 16 }}>
           {this.studentList.map((student) => (
             <li
               key={student.id}
@@ -66,10 +68,13 @@ class StudentList extends React.Component {
           ))}
         </ul>
 
-        <EditStudentInfo key={currentStudentId} defaultInfo={this} />
+        <EditStudentInfo
+          key={currentStudent.id}
+          defaultStudent={currentStudent}
+        />
       </div>
     );
   }
 }
 
-export default EditStudentInfo;
+export default StudentList;
