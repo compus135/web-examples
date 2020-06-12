@@ -10,6 +10,7 @@ import UnControlledComponentWithKey from "./react/bestPractice/state/resetStateW
 import FullyControlledComponent from "./react/bestPractice/state/resetStateWhenPropChange/FullyControlledComponent";
 import InComponentWillReceiveProps from "./react/bestPractice/state/fetchExternalDataWhenPropChange/InComponentWillReceiveProps";
 import InComponentDidUpdate from "./react/bestPractice/state/fetchExternalDataWhenPropChange/InComponentDidUpdate";
+import InGetDerivedStateFromProps from "./react/bestPractice/state/fetchExternalDataWhenPropChange/InGetDerivedStateFromProps";
 const menus = [
   {
     path: "react",
@@ -104,6 +105,11 @@ const menus = [
                     path: "InComponentDidUpdate",
                     title: "在ComponentDidUpdate中获取数据",
                     component: InComponentDidUpdate,
+                  },
+                  {
+                    path: "InGetDerivedStateFromProps",
+                    title: "在GetDerivedStateFromProps中获取数据",
+                    component: InGetDerivedStateFromProps,
                   },
                 ],
               },
