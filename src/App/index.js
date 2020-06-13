@@ -17,7 +17,7 @@ function App() {
           <MainMenu menus={menusWithUrl} />
         </Header>
         <Layout>
-          <Sider className="App-sider">
+          <Sider width={360} className="App-sider">
             <SiderMenu menus={menusWithUrl} />
           </Sider>
           <Layout>

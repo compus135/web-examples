@@ -1,9 +1,16 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import DynamicRouter from "./react/components/compflex/DynamicRouter/index";
-import Memoization from "./react/apiReference/component/getDerivedStateFromProps/Memoization";
+//import Memoization from "./react/apiReference/component/getDerivedStateFromProps/Memoization";
 import ReComputeInRender from "./react/bestPractice/state/recomputeData/ReComputeInRender";
 import ReComputeInRenderUseMemoize from "./react/bestPractice/state/recomputeData/ReComputeInRenderUseMemoization";
+import AsyncComponentDidMount from "./react/apiReference/component/componentDidMount/Async";
+import HocTest from "./test/hoc/Test";
+import UnControlledComponentWithKey from "./react/bestPractice/state/resetStateWhenPropChange/UnControlledComponentWithKey";
+import FullyControlledComponent from "./react/bestPractice/state/resetStateWhenPropChange/FullyControlledComponent";
+import InComponentWillReceiveProps from "./react/bestPractice/state/fetchExternalDataWhenPropChange/InComponentWillReceiveProps";
+import InComponentDidUpdate from "./react/bestPractice/state/fetchExternalDataWhenPropChange/InComponentDidUpdate";
+import InGetDerivedStateFromProps from "./react/bestPractice/state/fetchExternalDataWhenPropChange/InGetDerivedStateFromProps";
 const menus = [
   {
     path: "react",
@@ -35,9 +42,9 @@ const menus = [
             title: "component",
             children: [
               {
-                path: "getDerivedStateFromProps",
-                title: "getDerivedStateFromProps",
-                component: Memoization,
+                path: "componentDidMount",
+                title: "componentDidMount",
+                component: AsyncComponentDidMount,
               },
             ],
           },
@@ -68,6 +75,44 @@ const menus = [
                   },
                 ],
               },
+              {
+                path: "resetStateWhenPropChange",
+                title: "prop改变重置state",
+
+                children: [
+                  {
+                    path: "unControlledComponentWithKey",
+                    title: "有key的非可控组件",
+                    component: UnControlledComponentWithKey,
+                  },
+                  {
+                    path: "fullyControlledComponent",
+                    title: "完全受控组件",
+                    component: FullyControlledComponent,
+                  },
+                ],
+              },
+              {
+                path: "fetchExternalDataWhenPropChange",
+                title: "获取外部数据当prop改变",
+                children: [
+                  {
+                    path: "InComponentWillReceiveProps",
+                    title: "在ComponentWillReceiveProps中获取数据",
+                    component: InComponentWillReceiveProps,
+                  },
+                  {
+                    path: "InComponentDidUpdate",
+                    title: "在ComponentDidUpdate中获取数据",
+                    component: InComponentDidUpdate,
+                  },
+                  {
+                    path: "InGetDerivedStateFromProps",
+                    title: "在GetDerivedStateFromProps中获取数据",
+                    component: InGetDerivedStateFromProps,
+                  },
+                ],
+              },
             ],
           },
         ],
@@ -75,12 +120,9 @@ const menus = [
     ],
   },
   {
-    path: "js",
-    title: "js",
-    children: [
-      { path: "demo1", title: "demo1例子" },
-      { path: "demo12", title: "demo12" },
-    ],
+    path: "test",
+    title: "临时测试代码",
+    children: [{ path: "hoc", title: "hoc例子", component: HocTest }],
   },
   {
     path: "css",
