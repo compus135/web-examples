@@ -23,7 +23,14 @@ const SiderMenu = ({ menus, location: { pathname } }) => {
     } else {
       return (
         <Menu.Item key={menu.url}>
-          <Link to={menu.url}>{menu.title}</Link>
+          {menu.href ? (
+            // eslint-disable-next-line react/jsx-no-target-blank
+            <a target="_blank" href={`${menu.url}/${menu.href}`}>
+              {menu.title}
+            </a>
+          ) : (
+            <Link to={menu.url}>{menu.title}</Link>
+          )}
         </Menu.Item>
       );
     }
