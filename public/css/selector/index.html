@@ -4,11 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .pseudo .article1 .div1::before {
+        content: "xxx";
+        display: block;
+      }
+    </style>
   </head>
   <body>
     <section class="pseudo">
-      <article>
-        <div></div>
+      <article class="article1">
+        <div class="div1">yyyy</div>
+        <div><span>xxx</span>yyyy</div>
       </article>
     </section>
   </body>
