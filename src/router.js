@@ -6,6 +6,7 @@ import ReComputeInRender from "./react/bestPractice/state/recomputeData/ReComput
 import ReComputeInRenderUseMemoize from "./react/bestPractice/state/recomputeData/ReComputeInRenderUseMemoization";
 import AsyncComponentDidMount from "./react/apiReference/component/componentDidMount/Async";
 import HocTest from "./test/hoc/Test";
+import UnControlledComponentWithKeyAsync from "./react/bestPractice/state/resetStateWhenPropChange/UnControlledComponentWithKeyAsync";
 import UnControlledComponentWithKey from "./react/bestPractice/state/resetStateWhenPropChange/UnControlledComponentWithKey";
 import FullyControlledComponent from "./react/bestPractice/state/resetStateWhenPropChange/FullyControlledComponent";
 import InComponentWillReceiveProps from "./react/bestPractice/state/fetchExternalDataWhenPropChange/InComponentWillReceiveProps";
@@ -84,6 +85,11 @@ const menus = [
                     path: "unControlledComponentWithKey",
                     title: "有key的非可控组件",
                     component: UnControlledComponentWithKey,
+                  },
+                  {
+                    path: "unControlledComponentWithKeyAsync",
+                    title: "有key的非可控组件异步获取数据",
+                    component: UnControlledComponentWithKeyAsync,
                   },
                   {
                     path: "fullyControlledComponent",

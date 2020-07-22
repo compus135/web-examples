@@ -13,4 +13,16 @@ function subStringIndex(subString, parentString, num) {
   return subStringIndex;
 }
 
-export { subStringIndex };
+function request({ resolveData, rejectData, delay = 1000 }) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (resolveData) {
+        resolve(resolveData);
+      } else if (rejectData) {
+        reject(rejectData);
+      }
+    }, delay);
+  });
+}
+
+export { subStringIndex, request };
