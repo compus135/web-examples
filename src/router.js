@@ -11,6 +11,7 @@ import FullyControlledComponent from "./react/bestPractice/state/resetStateWhenP
 import InComponentWillReceiveProps from "./react/bestPractice/state/fetchExternalDataWhenPropChange/InComponentWillReceiveProps";
 import InComponentDidUpdate from "./react/bestPractice/state/fetchExternalDataWhenPropChange/InComponentDidUpdate";
 import InGetDerivedStateFromProps from "./react/bestPractice/state/fetchExternalDataWhenPropChange/InGetDerivedStateFromProps";
+import SwitchClass from "./react/bestPractice/runtimeTheme/switchClass";
 const menus = [
   {
     path: "react",
@@ -112,6 +113,22 @@ const menus = [
                     component: InGetDerivedStateFromProps,
                   },
                 ],
+              },
+            ],
+          },
+          {
+            path: "runtimeTheme",
+            title: "动态主题",
+            children: [
+              {
+                path: "switchClass",
+                title: "切换class",
+                component: SwitchClass,
+              },
+              {
+                path: "loadThemeCss",
+                title: "加载css文件",
+                href: "index.html",
               },
             ],
           },
