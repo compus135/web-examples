@@ -27,6 +27,8 @@ getDerivedStateFromProps 的目的：当 props 改变时， 更新 state
 - props 改变时，重新计算某些数据，使用 memoize
 - props 改变时，重置 state，使组件完全受控或使用 key 使组件完全不受控
 
+注：使用 key 适用于组件内部有 state 的情况
+
 ## 与 componentWillReceiveProps 对比
 
 - componentWillReceiveProps 容易被误用，会产生问题。
