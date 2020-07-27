@@ -12,11 +12,23 @@ import InComponentWillReceiveProps from "./react/bestPractice/state/fetchExterna
 import InComponentDidUpdate from "./react/bestPractice/state/fetchExternalDataWhenPropChange/InComponentDidUpdate";
 import InGetDerivedStateFromProps from "./react/bestPractice/state/fetchExternalDataWhenPropChange/InGetDerivedStateFromProps";
 import SwitchClass from "./react/bestPractice/runtimeTheme/switchClass";
+import UserReducerDemo from "./react/hooks/useReducer/UserReducerDemo2";
 const menus = [
   {
     path: "react",
     title: "react",
     children: [
+      {
+        path: "hooks",
+        title: "hooks",
+        children: [
+          {
+            path: "useReducer",
+            title: "useReducer",
+            component: UserReducerDemo,
+          },
+        ],
+      },
       {
         path: "components",
         title: "组件",
