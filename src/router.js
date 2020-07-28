@@ -11,11 +11,41 @@ import FullyControlledComponent from "./react/bestPractice/state/resetStateWhenP
 import InComponentWillReceiveProps from "./react/bestPractice/state/fetchExternalDataWhenPropChange/InComponentWillReceiveProps";
 import InComponentDidUpdate from "./react/bestPractice/state/fetchExternalDataWhenPropChange/InComponentDidUpdate";
 import InGetDerivedStateFromProps from "./react/bestPractice/state/fetchExternalDataWhenPropChange/InGetDerivedStateFromProps";
+import UseCallbackDemo from "./react/hooks/useCallback/UseCallbackDemo";
+import UseMemoDemo from "./react/hooks/useMemo/UseMemoDemo";
+import UseRefDemo from "./react/hooks/useRef/UseRefDemo";
+import UseContextDemo from "./react/hooks/useContext/UseContextDemo2";
 const menus = [
   {
     path: "react",
     title: "react",
     children: [
+      {
+        path: "hooks",
+        title: "hooks",
+        children: [
+          {
+            path: "useContext",
+            title: "useContext",
+            component: UseContextDemo,
+          },
+          {
+            path: "useCallback",
+            title: "useCallback",
+            component: UseCallbackDemo,
+          },
+          {
+            path: "useMemo",
+            title: "useMemo",
+            component: UseMemoDemo,
+          },
+          {
+            path: "useRef",
+            title: "useRef",
+            component: UseRefDemo,
+          },
+        ],
+      },
       {
         path: "components",
         title: "组件",
