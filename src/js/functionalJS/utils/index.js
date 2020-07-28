@@ -52,6 +52,22 @@ const pipe = (...functions) => {
 };
 const simpleCompose = (fnA, fnB) => (arg) => fnA(fnB(arg));
 
+const MayBe = function (val) {
+  this.value = val;
+};
+
+MayBe.of = function (val) {
+  return new MayBe(val);
+};
+
+MayBe.prototype.isNothing = function () {
+  return this.value === null || this.value === undefined;
+};
+
+MayBe.prototype.map = function (fn) {
+  return this.isNothing() ? MayBe.of(null) : MayBe.of(fn(this.value));
+};
+
 exports.filter = filter;
 exports.map = map;
 exports.simpleCompose = simpleCompose;
@@ -59,14 +75,9 @@ exports.compose = compose;
 exports.curry = curry;
 exports.partial = partial;
 exports.pipe = pipe;
+exports.MayBe = MayBe;
 
-const fn = (value) => value * value;
-const fn2 = (value) => value + value;
-const r = compose(fn, fn2)(3);
-console.log(r);
-const fn3 = (arr) => {
-  return (value) =>
-    arr.reduce((v, ifn) => {
-      return ifn(v);
-    }, value);
-};
+const result = MayBe.of("wang")
+  .map((x) => x.toUpperCase())
+  .map((x) => "Mr. " + x);
+console.log(result);

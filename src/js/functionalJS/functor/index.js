@@ -1,8 +1,16 @@
 const Container = function (val) {
-  this.val = val;
+  this.value = val;
 };
 
-Container.prototype.map = function () {};
-const ele = new Container(3);
+Container.of = function (val) {
+  return new Container(val);
+};
 
-console.log(ele);
+Container.prototype.map = function (fn) {
+  return Container.of(fn(this.value));
+};
+
+const instance = Container.of(3);
+const result = instance.map((val) => val * val);
+
+console.log(result);

@@ -1,0 +1,32 @@
+.row {
+  display: block;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+.row.row-quarter > * {
+  width: 25%;
+}
+.row.row-tria > * {
+  width: 33.3333%;
+}
+.col {
+  float: left;
+  min-height: 100px;
+  outline: 1px solid #666;
+}
+
+.subcategory-header {
+  width: 20%;
+}
+.subcategory-content {
+  width: 80%;
+}
+
+.story {
+  padding: 0.6875em;
+  background: #eee;
+}
+.story img {
+  width: 100%;
+}

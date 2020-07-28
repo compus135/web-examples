@@ -1,0 +1,38 @@
+html {
+  /* for rem */
+  font-size: 59px;
+}
+.text-overflow {
+  display: flex;
+}
+.text-overflow-left {
+  flex: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.text-overflow-right {
+  padding: 0 10px;
+}
+
+.margin-vs {
+  background: #000;
+}
+.margin-neg {
+  margin: 0 -20px;
+}
+.font-size {
+  font-size: 59px;
+}
+.font-size .px {
+  font-size: 1.314em;
+}
+.font-size .em {
+  font-size: 1.314em;
+}
+.font-size .percent {
+  font-size: 131.4%;
+}
+.font-size .rem {
+  font-size: 1.314rem;
+}
