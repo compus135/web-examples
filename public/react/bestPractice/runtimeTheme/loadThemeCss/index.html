@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./a.css" />
+  </head>
+  <body>
+    something
+    <button onclick="handleChangeTheme()">toggle</button>
+    <script>
+      function handleChangeTheme() {
+        var ele = document.createElement("link");
+        ele.rel = "stylesheet";
+        ele.href = "./b.css";
+        var headEl = document.getElementsByTagName("head")[0];
+        var linkEl = headEl.getElementsByTagName("link")[0];
+        headEl.removeChild(linkEl);
+        headEl.appendChild(ele);
+      }
+    </script>
+  </body>
+</html>
