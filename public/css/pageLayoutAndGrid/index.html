@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .row::after {
+        content: " ";
+        display: block;
+        clear: both;
+        height: 0;
+      }
+
+      .row-quarter > * {
+        width: 25%;
+      }
+      .row-trio > * {
+        width: 33.3333%;
+      }
+      .col {
+        float: left;
+        box-sizing: border-box;
+        min-height: 100px;
+        outline: 1px solid #666;
+      }
+      .subcategory-content {
+        width: 80%;
+      }
+      .subcategory-header {
+        width: 20%;
+      }
+      .subcategory-featured {
+        width: 50%;
+      }
+      .story {
+        padding: 0.6875em;
+        background-color: #eee;
+      }
+      .story img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="subcategory">
+      <div class="row">
+        <header class="col subcategory-header">
+          <h2>sub-section 1</h2>
+        </header>
+        <div class="col subcategory-content">
+          <div class="row row-quarter">
+            <div class="col subcategory-featured">
+              <article class="story">
+                <img src="../../logo192.png" alt="" />
+                <h3>logo</h3>
+                <p>some p....</p>
+              </article>
+            </div>
+            <div class="col"></div>
+            <div class="col"></div>
+          </div>
+          <div class="row row-quarter">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="subcategory">
+      <div class="row">
+        <header class="col subcategory-header"></header>
+        <div class="col subcategory-content">
+          <div class="row row-trio">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

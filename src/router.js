@@ -14,6 +14,10 @@ import InComponentDidUpdate from "./react/bestPractice/state/fetchExternalDataWh
 import InGetDerivedStateFromProps from "./react/bestPractice/state/fetchExternalDataWhenPropChange/InGetDerivedStateFromProps";
 import SwitchClass from "./react/bestPractice/runtimeTheme/switchClass";
 import UserReducerDemo from "./react/hooks/useReducer/UserReducerDemo2";
+import UseCallbackDemo from "./react/hooks/useCallback/UseCallbackDemo";
+import UseMemoDemo from "./react/hooks/useMemo/UseMemoDemo";
+import UseRefDemo from "./react/hooks/useRef/UseRefDemo";
+import UseContextDemo from "./react/hooks/useContext/UseContextDemo2";
 const menus = [
   {
     path: "react",
@@ -24,9 +28,30 @@ const menus = [
         title: "hooks",
         children: [
           {
+<<<<<<< HEAD
             path: "useReducer",
             title: "useReducer",
             component: UserReducerDemo,
+=======
+            path: "useContext",
+            title: "useContext",
+            component: UseContextDemo,
+          },
+          {
+            path: "useCallback",
+            title: "useCallback",
+            component: UseCallbackDemo,
+          },
+          {
+            path: "useMemo",
+            title: "useMemo",
+            component: UseMemoDemo,
+          },
+          {
+            path: "useRef",
+            title: "useRef",
+            component: UseRefDemo,
+>>>>>>> f27a0646ed3f54b0df6fc1c3ebe598b46c20f0da
           },
         ],
       },
