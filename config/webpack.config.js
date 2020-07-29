@@ -463,7 +463,7 @@ module.exports = function (webpackEnv) {
                   sourceMap: isEnvProduction && shouldUseSourceMap,
                 },
                 "less-loader",
-                { lessOptions: { javascriptEnable: true } }
+                { lessOptions: { javascriptEnabled: true } }
               ),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.

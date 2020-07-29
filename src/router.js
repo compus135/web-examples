@@ -14,6 +14,7 @@ import InComponentDidUpdate from "./react/bestPractice/state/fetchExternalDataWh
 import InGetDerivedStateFromProps from "./react/bestPractice/state/fetchExternalDataWhenPropChange/InGetDerivedStateFromProps";
 import SwitchClass from "./react/bestPractice/runtimeTheme/switchClass";
 import UserReducerDemo from "./react/hooks/useReducer/UserReducerDemo2";
+import AntdThemeDemo from "./react/bestPractice/runtimeTheme/antdTheme/Test";
 const menus = [
   {
     path: "react",
@@ -147,6 +148,11 @@ const menus = [
                 path: "loadThemeCss",
                 title: "加载css文件",
                 href: "index.html",
+              },
+              {
+                path: "antdTheme",
+                title: "自定义主题",
+                component: AntdThemeDemo,
               },
             ],
           },
