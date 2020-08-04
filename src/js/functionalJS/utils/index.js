@@ -77,7 +77,7 @@ exports.partial = partial;
 exports.pipe = pipe;
 exports.MayBe = MayBe;
 
-const result = MayBe.of("wang")
-  .map((x) => x.toUpperCase())
-  .map((x) => "Mr. " + x);
-console.log(result);
+// const result = MayBe.of("wang")
+//   .map((x) => x.toUpperCase())
+//   .map((x) => "Mr. " + x);
+// console.log(result);
