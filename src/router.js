@@ -14,7 +14,7 @@ import InComponentDidUpdate from "./react/bestPractice/state/fetchExternalDataWh
 import InGetDerivedStateFromProps from "./react/bestPractice/state/fetchExternalDataWhenPropChange/InGetDerivedStateFromProps";
 import SwitchClass from "./react/bestPractice/runtimeTheme/switchClass";
 import UserReducerDemo from "./react/hooks/useReducer/UserReducerDemo2";
-import AntdThemeDemo from "./react/bestPractice/runtimeTheme/antdTheme/Test";
+import AntdThemeDemo from "./react/bestPractice/runtimeTheme/antdTheme/AntdThemeDemo";
 const menus = [
   {
     path: "react",

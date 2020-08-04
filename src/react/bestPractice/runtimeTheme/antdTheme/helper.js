@@ -17,7 +17,7 @@ const antdLess = {
         },
       },
     },
-    // 重置浏览器默认样式，anticon， ant-motion-collapse样式
+    // mixin,重置浏览器默认样式，anticon， ant-motion-collapse样式
     "core/index": {
       // mixin
       "mixins/index": {
@@ -35,6 +35,16 @@ const antdLess = {
       iconfont: {}, // anticon 样式
       motion: {}, // .ant-motion-collapse
     },
+  },
+  "lib/style/components.less": {},
+};
+
+const antdDark = {
+  "lib/style/dark.less": {
+    "themes/dark.less": {
+      "default.less": {},
+    },
+    "core/index": {},
   },
   "lib/style/components.less": {},
 };
