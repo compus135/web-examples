@@ -20,6 +20,7 @@ import UseCallbackDemo from "./react/hooks/useCallback/UseCallbackDemo";
 import UseMemoDemo from "./react/hooks/useMemo/UseMemoDemo";
 import UseRefDemo from "./react/hooks/useRef/UseRefDemo";
 import UseContextDemo from "./react/hooks/useContext/UseContextDemo2";
+import AntdThemeDemo from "./react/bestPractice/runtimeTheme/antdTheme/AntdThemeDemo";
 import UseImperativeHandleDemo from "./react/hooks/useImperativeHandle/UseImperativeHandleDemo";
 import UseLayoutEffectDemo from "./react/hooks/useLayoutEffect/UseLayoutEffectDemo";
 const menus = [
@@ -43,6 +44,11 @@ const menus = [
         path: "hooks",
         title: "hooks",
         children: [
+          {
+            path: "useReducer",
+            title: "useReducer",
+            component: UserReducerDemo,
+          },
           {
             path: "useLayoutEffect",
             title: "useLayoutEffect",
@@ -197,6 +203,11 @@ const menus = [
                 path: "loadThemeCss",
                 title: "加载css文件",
                 href: "index.html",
+              },
+              {
+                path: "antdTheme",
+                title: "自定义主题",
+                component: AntdThemeDemo,
               },
             ],
           },
