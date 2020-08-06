@@ -21,6 +21,7 @@ import UseMemoDemo from "./react/hooks/useMemo/UseMemoDemo";
 import UseRefDemo from "./react/hooks/useRef/UseRefDemo";
 import UseContextDemo from "./react/hooks/useContext/UseContextDemo2";
 import UseImperativeHandleDemo from "./react/hooks/useImperativeHandle/UseImperativeHandleDemo";
+import UseLayoutEffectDemo from "./react/hooks/useLayoutEffect/UseLayoutEffectDemo";
 const menus = [
   {
     path: "react",
@@ -42,6 +43,11 @@ const menus = [
         path: "hooks",
         title: "hooks",
         children: [
+          {
+            path: "useLayoutEffect",
+            title: "useLayoutEffect",
+            component: UseLayoutEffectDemo,
+          },
           {
             path: "useImperativeHandle",
             title: "useImperativeHandle",
