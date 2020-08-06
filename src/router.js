@@ -1,5 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
+import ForwardingRefsDemo from "./react/advancedGuides/forwardingRefs/ForwardingRefsDemo";
+
 import DynamicRouter from "./react/components/compflex/DynamicRouter/index";
 //import Memoization from "./react/apiReference/component/getDerivedStateFromProps/Memoization";
 import ReComputeInRender from "./react/bestPractice/state/recomputeData/ReComputeInRender";
@@ -19,11 +21,24 @@ import UseMemoDemo from "./react/hooks/useMemo/UseMemoDemo";
 import UseRefDemo from "./react/hooks/useRef/UseRefDemo";
 import UseContextDemo from "./react/hooks/useContext/UseContextDemo2";
 import AntdThemeDemo from "./react/bestPractice/runtimeTheme/antdTheme/AntdThemeDemo";
+import UseImperativeHandleDemo from "./react/hooks/useImperativeHandle/UseImperativeHandleDemo";
 const menus = [
   {
     path: "react",
     title: "react",
+
     children: [
+      {
+        path: "advancedGuides",
+        title: "advancedGuides",
+        children: [
+          {
+            path: "forwardingRefs",
+            title: "forwardingRefs",
+            component: ForwardingRefsDemo,
+          },
+        ],
+      },
       {
         path: "hooks",
         title: "hooks",
@@ -32,6 +47,21 @@ const menus = [
             path: "useReducer",
             title: "useReducer",
             component: UserReducerDemo,
+          },
+          {
+            path: "useImperativeHandle",
+            title: "useImperativeHandle",
+            component: UseImperativeHandleDemo,
+          },
+          {
+            path: "useReducer",
+            title: "useReducer",
+            component: UserReducerDemo,
+          },
+          {
+            path: "useContext",
+            title: "useContext",
+            component: UseContextDemo,
           },
           {
             path: "useCallback",
