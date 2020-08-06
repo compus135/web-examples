@@ -68,6 +68,29 @@ MayBe.prototype.map = function (fn) {
   return this.isNothing() ? MayBe.of(null) : MayBe.of(fn(this.value));
 };
 
+const Nothing = function (val) {
+  this.value = val;
+};
+
+Nothing.of = function (val) {
+  return new Nothing(val);
+};
+
+Nothing.prototype.map = function (fn) {
+  return this;
+};
+const Some = function (val) {
+  this.value = val;
+};
+
+Some.of = function (val) {
+  return new Some(val);
+};
+
+Some.prototype.map = function (fn) {
+  return Some.of(fn(this.value));
+};
+
 exports.filter = filter;
 exports.map = map;
 exports.simpleCompose = simpleCompose;
@@ -76,8 +99,8 @@ exports.curry = curry;
 exports.partial = partial;
 exports.pipe = pipe;
 exports.MayBe = MayBe;
+exports.Either = { Some: Some, Nothing: Nothing };
 
-const result = MayBe.of("wang")
-  .map((x) => x.toUpperCase())
-  .map((x) => "Mr. " + x);
+const result = Nothing.of("test").map((x) => x.toUpperCase());
+
 console.log(result);

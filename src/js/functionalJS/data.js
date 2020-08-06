@@ -29,4 +29,30 @@ const apressBooks = [
   },
 ];
 
+const subRedditPosts = {
+  kind: "listing",
+  data: {
+    modhash: "",
+    children: [
+      {
+        kind: "t3",
+        data: {
+          title: "class components",
+          url: "http://class...",
+          author: "author xxx",
+        },
+      },
+      {
+        kind: "t4",
+        data: {
+          title: "hooks components",
+          url: "http://hooks...",
+          author: "author xxx hooks",
+        },
+      },
+    ],
+  },
+};
+
 exports.apressBooks = apressBooks;
+exports.subRedditPosts = subRedditPosts;
