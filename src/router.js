@@ -18,6 +18,7 @@ import UseCallbackDemo from "./react/hooks/useCallback/UseCallbackDemo";
 import UseMemoDemo from "./react/hooks/useMemo/UseMemoDemo";
 import UseRefDemo from "./react/hooks/useRef/UseRefDemo";
 import UseContextDemo from "./react/hooks/useContext/UseContextDemo2";
+import AntdThemeDemo from "./react/bestPractice/runtimeTheme/antdTheme/AntdThemeDemo";
 const menus = [
   {
     path: "react",
@@ -28,14 +29,9 @@ const menus = [
         title: "hooks",
         children: [
           {
-<<<<<<< HEAD
             path: "useReducer",
             title: "useReducer",
             component: UserReducerDemo,
-=======
-            path: "useContext",
-            title: "useContext",
-            component: UseContextDemo,
           },
           {
             path: "useCallback",
@@ -51,7 +47,6 @@ const menus = [
             path: "useRef",
             title: "useRef",
             component: UseRefDemo,
->>>>>>> f27a0646ed3f54b0df6fc1c3ebe598b46c20f0da
           },
         ],
       },
@@ -172,6 +167,11 @@ const menus = [
                 path: "loadThemeCss",
                 title: "加载css文件",
                 href: "index.html",
+              },
+              {
+                path: "antdTheme",
+                title: "自定义主题",
+                component: AntdThemeDemo,
               },
             ],
           },
