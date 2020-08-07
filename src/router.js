@@ -23,6 +23,8 @@ import UseContextDemo from "./react/hooks/useContext/UseContextDemo2";
 import AntdThemeDemo from "./react/bestPractice/runtimeTheme/antdTheme/AntdThemeDemo";
 import UseImperativeHandleDemo from "./react/hooks/useImperativeHandle/UseImperativeHandleDemo";
 import UseLayoutEffectDemo from "./react/hooks/useLayoutEffect/UseLayoutEffectDemo";
+import ModalDemo from "./react/antd/modal/ModalDemo";
+import ModalDemo2 from "./react/antd/modal/ModalDemo2";
 const menus = [
   {
     path: "react",
@@ -37,6 +39,28 @@ const menus = [
             path: "forwardingRefs",
             title: "forwardingRefs",
             component: ForwardingRefsDemo,
+          },
+        ],
+      },
+      {
+        path: "antd",
+        title: "antd",
+        children: [
+          {
+            path: "modal",
+            title: "modal",
+            children: [
+              {
+                path: "ModalDemo",
+                title: "ModalDemo",
+                component: ModalDemo,
+              },
+              {
+                path: "ModalDemo2",
+                title: "ModalDemo2",
+                component: ModalDemo2,
+              },
+            ],
           },
         ],
       },
