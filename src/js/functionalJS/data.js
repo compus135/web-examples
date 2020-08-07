@@ -33,6 +33,8 @@ const subRedditPosts = {
   kind: "listing",
   data: {
     modhash: "",
+    after: "t3_terth",
+    befor: null,
     children: [
       {
         kind: "t3",
@@ -40,6 +42,7 @@ const subRedditPosts = {
           title: "class components",
           url: "http://class...",
           author: "author xxx",
+          permalink: "/r/compsci....",
         },
       },
       {
@@ -48,6 +51,7 @@ const subRedditPosts = {
           title: "hooks components",
           url: "http://hooks...",
           author: "author xxx hooks",
+          permalink: "/r/compsci....",
         },
       },
     ],
