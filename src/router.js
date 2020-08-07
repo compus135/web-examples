@@ -23,6 +23,8 @@ import UseContextDemo from "./react/hooks/useContext/UseContextDemo2";
 import AntdThemeDemo from "./react/bestPractice/runtimeTheme/antdTheme/AntdThemeDemo";
 import UseImperativeHandleDemo from "./react/hooks/useImperativeHandle/UseImperativeHandleDemo";
 import UseLayoutEffectDemo from "./react/hooks/useLayoutEffect/UseLayoutEffectDemo";
+import UseFriendStatusDemo from "./react/hooks/useCustomHook/UseFriendStatusDemo";
+import UseDebugValueDemo from "./react/hooks/useDebugValue/UseDebugValueDemo";
 import ModalDemo from "./react/antd/modal/ModalDemo";
 import ModalDemo2 from "./react/antd/modal/ModalDemo2";
 const menus = [
@@ -69,6 +71,16 @@ const menus = [
         title: "hooks",
         children: [
           {
+            path: "useDebugValue",
+            title: "useDebugValue",
+            component: UseDebugValueDemo,
+          },
+          {
+            path: "useCustomHook",
+            title: "useCustomHook",
+            component: UseFriendStatusDemo,
+          },
+          {
             path: "useReducer",
             title: "useReducer",
             component: UserReducerDemo,
@@ -83,11 +95,7 @@ const menus = [
             title: "useImperativeHandle",
             component: UseImperativeHandleDemo,
           },
-          {
-            path: "useReducer",
-            title: "useReducer",
-            component: UserReducerDemo,
-          },
+
           {
             path: "useContext",
             title: "useContext",
