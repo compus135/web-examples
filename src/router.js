@@ -27,6 +27,7 @@ import UseFriendStatusDemo from "./react/hooks/useCustomHook/UseFriendStatusDemo
 import UseDebugValueDemo from "./react/hooks/useDebugValue/UseDebugValueDemo";
 import ModalDemo from "./react/antd/modal/ModalDemo";
 import ModalDemo2 from "./react/antd/modal/ModalDemo2";
+import GridsDemo from "./react/antd/layout/grids/GridsDemo";
 const menus = [
   {
     path: "react",
@@ -48,6 +49,17 @@ const menus = [
         path: "antd",
         title: "antd",
         children: [
+          {
+            path: "layout",
+            title: "layout",
+            children: [
+              {
+                path: "grids",
+                title: "grids",
+                component: GridsDemo,
+              },
+            ],
+          },
           {
             path: "modal",
             title: "modal",

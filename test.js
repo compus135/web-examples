@@ -1,37 +1,15 @@
-const path = {
-  name: "a",
-  child: {
-    name: "b",
-    child: {
-      name: "c",
-      child: {
-        name: "d",
-      },
-    },
-  },
-};
-
-const getPath = (obj) => {
-  if (!obj.child) {
-    return obj.name;
-  } else {
-    return obj.name + "/" + getPath(obj.child);
-  }
-};
-
-const curry = (fn) => {
-  return function curriedFn(...args) {
-    if (fn.length === args.length) {
-      return fn.apply(null, args);
-    }
-    return function () {
-      return curriedFn.apply(null, args.concat([].slice.call(arguments)));
-    };
-  };
-};
-
-function add(a) {
-  return a;
+function Fn(val) {
+  this.value = val;
 }
 
-console.log(curry(add)(3));
+Fn.of = function (val) {
+  return new Fn(val);
+};
+
+Fn.prototype.join = function (val) {
+  return this.value;
+};
+
+const obj = new Fn(new Fn(1));
+const obj2 = Fn.of(Fn.of(2));
+console.log(obj.join());

@@ -58,5 +58,11 @@ const subRedditPosts = {
   },
 };
 
+const subRedditPostsError = {
+  message: "something went wrong",
+  errorCode: 402,
+};
+
 exports.apressBooks = apressBooks;
 exports.subRedditPosts = subRedditPosts;
+exports.subRedditPostsError = subRedditPostsError;
