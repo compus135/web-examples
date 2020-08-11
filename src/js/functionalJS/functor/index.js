@@ -1,54 +1,65 @@
 const { MayBe, map } = require("../utils");
+const { subRedditPosts, subRedditPostsError } = require("../data");
 
-const normalData = {
-  kind: "Listing",
-  data: {
-    modhash: "",
-    children: [
-      {
-        kind: "t1",
-        data: { url: "http://...111", title: "es111" },
-      },
-      {
-        kind: "t2",
-        data: { url: "http://...222", title: "es222" },
-      },
-      {
-        kind: "t3",
-        data: { url: "http://...333", title: "es333" },
-      },
-    ],
-  },
-};
-const emptyData = {
-  kind: "t3",
-};
-const errorData = {
-  message: "something went wrong",
-  errorCode: 2,
-};
-let getTopTenSubRedditPosts = (data) => {
+let searchReddit = (search) => {
   let response;
   try {
-    response = data;
+    response = subRedditPosts;
   } catch (error) {
-    response = errorData;
+    response = subRedditPostsError;
   }
   return response;
 };
 
-let getTopTenSubRedditData = (type) => {
-  let response = getTopTenSubRedditPosts(type);
-  return MayBe.of(response)
+let getComments = (search) => {
+  let response;
+  try {
+    response = subRedditPosts;
+  } catch (error) {
+    response = subRedditPostsError;
+  }
+  return response;
+};
+
+let mergeViaMayBe = (searchText) => {
+  let redditMayBe = MayBe.of(searchReddit(searchText));
+  let ans = redditMayBe
     .map((arr) => arr["data"])
     .map((arr) => arr["children"])
     .map((arr) =>
-      map(arr, (x) => ({ title: x["data"].title, url: x["data"].url }))
+      map(arr, (x) => ({
+        title: x["data"].title,
+        permalink: x["data"].permalink,
+      }))
+    )
+    .map((obj) =>
+      map(obj, (x) => ({
+        title: x.title,
+        comments: MayBe.of(getComments(x.permalink)),
+      }))
     );
+  return ans;
 };
 
-const result = getTopTenSubRedditData(normalData);
-const result2 = getTopTenSubRedditData(emptyData);
-const result3 = getTopTenSubRedditData(errorData);
+let mergeViaJoin = (searchText) => {
+  let redditMayBe = MayBe.of(searchReddit(searchText));
+  let ans = redditMayBe
+    .map((arr) => arr["data"])
+    .map((arr) => arr["children"])
+    .map((arr) =>
+      map(arr, (x) => ({
+        title: x["data"].title,
+        permalink: x["data"].permalink,
+      }))
+    )
+    .map((obj) =>
+      map(obj, (x) => ({
+        title: x.title,
+        comments: MayBe.of(getComments(x.permalink)).join(),
+      }))
+    )
+    .join();
+  return ans;
+};
 
-console.log(result, result2, result3);
+console.log(mergeViaJoin(""));

@@ -68,6 +68,10 @@ MayBe.prototype.map = function (fn) {
   return this.isNothing() ? MayBe.of(null) : MayBe.of(fn(this.value));
 };
 
+MayBe.prototype.join = function () {
+  return this.isNothing() ? MayBe.of(null) : this.value;
+};
+
 const Nothing = function (val) {
   this.value = val;
 };
@@ -103,7 +107,12 @@ exports.Either = { Some: Some, Nothing: Nothing };
 
 //const result = Nothing.of("test").map((x) => x.toUpperCase());
 
-// const result = MayBe.of("wang")
-//   .map((x) => x.toUpperCase())
-//   .map((x) => "Mr. " + x);
-// console.log(result);
+const joinExample = MayBe.of(MayBe.of(5));
+
+// const result = joinExample.map((out) => {
+//   return out.map((val) => val + 4);
+// });
+
+const result = joinExample.join().map((val) => val + 4);
+
+console.log(result);
