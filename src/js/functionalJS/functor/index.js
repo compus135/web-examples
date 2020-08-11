@@ -62,4 +62,25 @@ let mergeViaJoin = (searchText) => {
   return ans;
 };
 
-console.log(mergeViaJoin(""));
+let mergeViaChain = (searchText) => {
+  let redditMayBe = MayBe.of(searchReddit(searchText));
+  let ans = redditMayBe
+    .map((arr) => arr["data"])
+    .map((arr) => arr["children"])
+    .map((arr) =>
+      map(arr, (x) => ({
+        title: x["data"].title,
+        permalink: x["data"].permalink,
+      }))
+    )
+    .chain((obj) =>
+      map(obj, (x) => ({
+        title: x.title,
+        comments: MayBe.of(getComments(x.permalink)).join(),
+      }))
+    );
+
+  return ans;
+};
+
+console.log(mergeViaChain(""));

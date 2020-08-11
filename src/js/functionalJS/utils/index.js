@@ -71,7 +71,9 @@ MayBe.prototype.map = function (fn) {
 MayBe.prototype.join = function () {
   return this.isNothing() ? MayBe.of(null) : this.value;
 };
-
+MayBe.prototype.chain = function (f) {
+  return this.map(f).join();
+};
 const Nothing = function (val) {
   this.value = val;
 };
