@@ -7,7 +7,7 @@ import DynamicRouter from "./react/components/compflex/DynamicRouter/index";
 import ReComputeInRender from "./react/bestPractice/state/recomputeData/ReComputeInRender";
 import ReComputeInRenderUseMemoize from "./react/bestPractice/state/recomputeData/ReComputeInRenderUseMemoization";
 import AsyncComponentDidMount from "./react/apiReference/component/componentDidMount/Async";
-import HocTest from "./test/hoc/Test";
+import Test from "./test/Test";
 import UnControlledComponentWithKeyAsync from "./react/bestPractice/state/resetStateWhenPropChange/UnControlledComponentWithKeyAsync";
 import UnControlledComponentWithKey from "./react/bestPractice/state/resetStateWhenPropChange/UnControlledComponentWithKey";
 import FullyControlledComponent from "./react/bestPractice/state/resetStateWhenPropChange/FullyControlledComponent";
@@ -25,6 +25,7 @@ import UseImperativeHandleDemo from "./react/hooks/useImperativeHandle/UseImpera
 import UseLayoutEffectDemo from "./react/hooks/useLayoutEffect/UseLayoutEffectDemo";
 import UseFriendStatusDemo from "./react/hooks/useCustomHook/UseFriendStatusDemo";
 import UseDebugValueDemo from "./react/hooks/useDebugValue/UseDebugValueDemo";
+import ReadOftenChangeValueFromUseCallback2 from "./react/hooks/FAQ/ReadOftenChangeValueFromUseCallback3";
 import ModalDemo from "./react/antd/modal/ModalDemo";
 import ModalDemo2 from "./react/antd/modal/ModalDemo2";
 const menus = [
@@ -70,6 +71,17 @@ const menus = [
         path: "hooks",
         title: "hooks",
         children: [
+          {
+            path: "faq",
+            title: "FAQ",
+            children: [
+              {
+                path: "readOftenChangeValueFromUseCallback2",
+                title: "readOftenChangeValueFromUseCallback2",
+                component: ReadOftenChangeValueFromUseCallback2,
+              },
+            ],
+          },
           {
             path: "useDebugValue",
             title: "useDebugValue",
@@ -250,7 +262,7 @@ const menus = [
   {
     path: "test",
     title: "临时测试代码",
-    children: [{ path: "hoc", title: "hoc例子", component: HocTest }],
+    component: Test,
   },
   {
     path: "css",
