@@ -26,6 +26,7 @@ import UseLayoutEffectDemo from "./react/hooks/useLayoutEffect/UseLayoutEffectDe
 import UseFriendStatusDemo from "./react/hooks/useCustomHook/UseFriendStatusDemo";
 import UseDebugValueDemo from "./react/hooks/useDebugValue/UseDebugValueDemo";
 import ReadOftenChangeValueFromUseCallback2 from "./react/hooks/FAQ/ReadOftenChangeValueFromUseCallback3";
+import AvoidPassCallbackDown from "./react/hooks/FAQ/AvoidPassCallbackDown";
 import ModalDemo from "./react/antd/modal/ModalDemo";
 import ModalDemo2 from "./react/antd/modal/ModalDemo2";
 import GridsDemo from "./react/antd/layout/grids/GridsDemo";
@@ -87,6 +88,11 @@ const menus = [
             path: "faq",
             title: "FAQ",
             children: [
+              {
+                path: "avoidPassCallbackDown",
+                title: "避免向下传递回调",
+                component: AvoidPassCallbackDown,
+              },
               {
                 path: "readOftenChangeValueFromUseCallback2",
                 title: "readOftenChangeValueFromUseCallback2",
