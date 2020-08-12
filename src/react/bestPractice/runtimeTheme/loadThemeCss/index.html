@@ -18,6 +18,9 @@
         var linkEl = headEl.getElementsByTagName("link")[0];
         headEl.removeChild(linkEl);
         headEl.appendChild(ele);
+        ele.onload = function () {
+          alert("suc");
+        };
       }
     </script>
   </body>

@@ -12,4 +12,6 @@ Fn.prototype.join = function (val) {
 
 const obj = new Fn(new Fn(1));
 const obj2 = Fn.of(Fn.of(2));
+
 console.log(obj.join());
+console.log(2222);
