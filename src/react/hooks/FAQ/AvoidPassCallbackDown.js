@@ -7,31 +7,43 @@ import React, {
   useReducer,
 } from "react";
 
+const themeReducer = (state, action) => {
+  switch (action.type) {
+    case "change":
+      return action.payload;
+
+    default:
+      break;
+  }
+  return state;
+};
+const ThemeDispatch = React.createContext(null);
 const App = () => {
-  const [theme, setTheme] = useState("red");
+  const [theme, dispatch] = useReducer(themeReducer, "red");
 
   const handleChangeTheme = (theme) => {
-    setTheme(theme);
+    dispatch({ type: "change", payload: theme });
   };
   return (
     <div>
       <button onClick={() => handleChangeTheme("yellow")}>changeTheme</button>
-      <Toolbar theme={theme} onThemeChange={handleChangeTheme} />
+      <ThemeDispatch.Provider value={dispatch}>
+        <Toolbar theme={theme} />
+      </ThemeDispatch.Provider>
     </div>
   );
 };
 
 const Toolbar = (props) => {
-  return (
-    <ThemeButton theme={props.theme} onThemeChange={props.onThemeChange} />
-  );
+  return <ThemeButton theme={props.theme} />;
 };
 
 const ThemeButton = (props) => {
+  const dispatch = useContext(ThemeDispatch);
   return (
     <div>
       <button
-        onClick={() => props.onThemeChange("green")}
+        onClick={() => dispatch({ type: "change", payload: "green" })}
         style={{ background: props.theme }}
       >
         btn

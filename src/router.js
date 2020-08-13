@@ -19,7 +19,7 @@ import UserReducerDemo from "./react/hooks/useReducer/UserReducerDemo2";
 import UseCallbackDemo from "./react/hooks/useCallback/UseCallbackDemo";
 import UseMemoDemo from "./react/hooks/useMemo/UseMemoDemo";
 import UseRefDemo from "./react/hooks/useRef/UseRefDemo";
-import UseContextDemo from "./react/hooks/useContext/UseContextDemo2";
+import UseContextDemo from "./react/hooks/useContext/UseContextDemo3";
 import AntdThemeDemo from "./react/bestPractice/runtimeTheme/antdTheme/AntdThemeDemo";
 import UseImperativeHandleDemo from "./react/hooks/useImperativeHandle/UseImperativeHandleDemo";
 import UseLayoutEffectDemo from "./react/hooks/useLayoutEffect/UseLayoutEffectDemo";
