@@ -10,7 +10,7 @@ body {
   outline: 1px solid #666;
 }
 .row {
-  margin: 0 -0.9%;
+  margin: 0 -9%;
 }
 .row:after {
   display: block;
@@ -19,7 +19,7 @@ body {
   height: 0;
 }
 .row-quarter > * {
-  width: 25%;
+  width: 32%;
   /* padding: 0 0.9% 1.375em; */
 }
 .row-trio > * {
@@ -30,6 +30,7 @@ body {
   min-height: 100px;
   outline: 1px solid #666;
   box-sizing: border-box;
+  width: 32%;
 }
 
 .subcategory-header {
