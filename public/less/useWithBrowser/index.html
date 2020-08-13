@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet/less" type="text/css" href="./index.less" />
+    <script src="./less.js"></script>
+  </head>
+  <body>
+    <div onclick="handleClick()">
+      <p class="name">him</p>
+    </div>
+    <script>
+      function handleClick() {
+        less.modifyVars({
+          "@font-color": "black",
+        });
+      }
+    </script>
+  </body>
+</html>

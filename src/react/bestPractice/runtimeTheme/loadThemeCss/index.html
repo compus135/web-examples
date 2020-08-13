@@ -11,16 +11,16 @@
     <button onclick="handleChangeTheme()">toggle</button>
     <script>
       function handleChangeTheme() {
-        var ele = document.createElement("link");
-        ele.rel = "stylesheet";
-        ele.href = "./b.css";
-        var headEl = document.getElementsByTagName("head")[0];
-        var linkEl = headEl.getElementsByTagName("link")[0];
-        headEl.removeChild(linkEl);
-        headEl.appendChild(ele);
-        ele.onload = function () {
-          alert("suc");
-        };
+        var bodyEl = document.getElementsByTagName("body")[0];
+        var linkEls = bodyEl.getElementsByTagName("link");
+        if (!linkEls.length) {
+          var ele = document.createElement("link");
+          ele.rel = "stylesheet";
+          ele.href = "./b.css";
+          bodyEl.appendChild(ele);
+        } else {
+          bodyEl.removeChild(linkEls[0]);
+        }
       }
     </script>
   </body>
