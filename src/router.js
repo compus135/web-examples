@@ -25,8 +25,10 @@ import UseImperativeHandleDemo from "./react/hooks/useImperativeHandle/UseImpera
 import UseLayoutEffectDemo from "./react/hooks/useLayoutEffect/UseLayoutEffectDemo";
 import UseFriendStatusDemo from "./react/hooks/useCustomHook/UseFriendStatusDemo";
 import UseDebugValueDemo from "./react/hooks/useDebugValue/UseDebugValueDemo";
+import UseStateDemo from "./react/hooks/useState/UseStateDemo";
 import ReadOftenChangeValueFromUseCallback2 from "./react/hooks/FAQ/ReadOftenChangeValueFromUseCallback3";
 import AvoidPassCallbackDown from "./react/hooks/FAQ/AvoidPassCallbackDown";
+import CreateExpensiveObjectLazily from "./react/hooks/FAQ/CreateExpensiveObjectLazily";
 import ModalDemo from "./react/antd/modal/ModalDemo";
 import ModalDemo2 from "./react/antd/modal/ModalDemo2";
 import GridsDemo from "./react/antd/layout/grids/GridsDemo";
@@ -89,6 +91,11 @@ const menus = [
             title: "FAQ",
             children: [
               {
+                path: "createExpensiveObjectLazily",
+                title: "惰性创建昂贵的对象",
+                component: CreateExpensiveObjectLazily,
+              },
+              {
                 path: "avoidPassCallbackDown",
                 title: "避免向下传递回调",
                 component: AvoidPassCallbackDown,
@@ -99,6 +106,11 @@ const menus = [
                 component: ReadOftenChangeValueFromUseCallback2,
               },
             ],
+          },
+          {
+            path: "useState",
+            title: "useState",
+            component: UseStateDemo,
           },
           {
             path: "useDebugValue",
