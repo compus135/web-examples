@@ -26,6 +26,7 @@ import UseLayoutEffectDemo from "./react/hooks/useLayoutEffect/UseLayoutEffectDe
 import UseFriendStatusDemo from "./react/hooks/useCustomHook/UseFriendStatusDemo";
 import UseDebugValueDemo from "./react/hooks/useDebugValue/UseDebugValueDemo";
 import UseStateDemo from "./react/hooks/useState/UseStateDemo";
+import DependenciesChanageOften from "./react/hooks/FAQ/DependenciesChanageOften";
 import ReadOftenChangeValueFromUseCallback2 from "./react/hooks/FAQ/ReadOftenChangeValueFromUseCallback3";
 import AvoidPassCallbackDown from "./react/hooks/FAQ/AvoidPassCallbackDown";
 import CreateExpensiveObjectLazily from "./react/hooks/FAQ/CreateExpensiveObjectLazily";
@@ -90,6 +91,11 @@ const menus = [
             path: "faq",
             title: "FAQ",
             children: [
+              {
+                path: "dependenciesChanageOften",
+                title: "effect依赖变化频繁",
+                component: DependenciesChanageOften,
+              },
               {
                 path: "createExpensiveObjectLazily",
                 title: "惰性创建昂贵的对象",
