@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .wrapper {
+        margin: 20px auto;
+        width: 1200px;
+      }
+      .row {
+        outline: 1px solid #666;
+      }
+      .row::after {
+        content: " ";
+        display: block;
+        clear: both;
+        height: 0;
+      }
+
+      .col {
+        height: 100px;
+        float: left;
+        outline: 1px solid #666;
+        box-sizing: border-box;
+        margin: 20px;
+      }
+      .col-20 {
+        width: calc(20% - 40px);
+      }
+      .col-80 {
+        width: calc(80% - 40px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="row row-1200">
+        <div class="col col-20"></div>
+        <div class="col col-80"></div>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div style="outline: 1px solid #666; height: 100px;">
+        fd
+      </div>
+    </div>
+  </body>
+</html>
