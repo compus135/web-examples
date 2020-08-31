@@ -1,3 +1,25 @@
+const forEach = (array, fn) => {
+  let i;
+  for (i = 0; i < array.length; i++) fn(array[i]);
+};
+
+const forEachObject = (obj, fn) => {
+  for (var property in obj) {
+    if (obj.hasOwnProperty(property)) {
+      //calls the fn with key and value as its argument
+      fn(property, obj[property]);
+    }
+  }
+};
+
+const unless = (predicate, fn) => {
+  if (!predicate) fn();
+};
+
+const times = (times, fn) => {
+  for (var i = 0; i < times; i++) fn(i);
+};
+
 const map = (array, fn) => {
   let results = [];
   for (const value of array) {
@@ -97,6 +119,10 @@ Some.prototype.map = function (fn) {
   return Some.of(fn(this.value));
 };
 
+exports.forEach = forEach;
+exports.forEachObject = forEachObject;
+exports.unless = unless;
+exports.times = times;
 exports.filter = filter;
 exports.map = map;
 exports.simpleCompose = simpleCompose;
@@ -106,15 +132,3 @@ exports.partial = partial;
 exports.pipe = pipe;
 exports.MayBe = MayBe;
 exports.Either = { Some: Some, Nothing: Nothing };
-
-//const result = Nothing.of("test").map((x) => x.toUpperCase());
-
-const joinExample = MayBe.of(MayBe.of(5));
-
-// const result = joinExample.map((out) => {
-//   return out.map((val) => val + 4);
-// });
-
-const result = joinExample.join().map((val) => val + 4);
-
-console.log(result);
