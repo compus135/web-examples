@@ -23,3 +23,55 @@ const sortBy = (property) => (a, b) => {
 r = people.sort(sortBy("first"));
 console.log(r);
 ```
+
+2. 闭包记住上下文
+
+```
+var fn = (arg) => {
+  let outer = "visible";
+  let innerFn = () => {
+    console.log(outer);
+    console.log(arg);
+  };
+  outer = "hidden";
+  return innerFn;
+};
+
+```
+
+3. 数组元素转变为整数
+
+```
+const unary = (fn) => (fn.length === 1 ? fn : (arg) => fn(arg));
+
+const r = ["1", "2", "3"].map(unary(parseInt));
+```
+
+4. 运行一次给定的函数
+
+```
+const once = (fn) => {
+  let done = false;
+
+  return function () {
+    return done ? undefined : ((done = true), fn.apply(this, arguments));
+  };
+};
+
+var doPayment = once(() => {
+  console.log("payment is done");
+});
+
+doPayment(); //payment is done
+doPayment(); //undefined
+```
+
+5. memoized
+
+```
+const memoized = (fn) => {
+  const lookupTable = {};
+
+  return (arg) => lookupTable[arg] || (lookupTable[arg] = fn(arg));
+};
+```
