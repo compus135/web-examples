@@ -75,3 +75,36 @@ const memoized = (fn) => {
   return (arg) => lookupTable[arg] || (lookupTable[arg] = fn(arg));
 };
 ```
+
+6. map
+
+```
+const map = (array, fn) => {
+  let results = [];
+  for (const value of array) results.push(fn(value));
+
+  return results;
+};
+```
+
+7. filter
+
+```
+const filter = (array, fn) => {
+  let results = [];
+  for (const value of array) fn(value) ? results.push(value) : undefined;
+
+  return results;
+};
+```
+
+8. 嵌套数组转为非嵌套的单一数组
+
+```
+const concatAll = (array, fn) => {
+  let results = [];
+  for (const value of array) results.push.apply(results, value);
+
+  return results;
+};
+```
