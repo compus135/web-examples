@@ -1,17 +1,15 @@
-function Fn(val) {
-  this.value = val;
+let r;
+function zip(leftArr, rightArr, fn) {
+  let r = [];
+  for (
+    let index = 0;
+    index < Math.min(leftArr.length, rightArr.length);
+    index++
+  ) {
+    r.push(fn(leftArr[index], rightArr[index]));
+  }
+  return r;
 }
 
-Fn.of = function (val) {
-  return new Fn(val);
-};
-
-Fn.prototype.join = function (val) {
-  return this.value;
-};
-
-const obj = new Fn(new Fn(1));
-const obj2 = Fn.of(Fn.of(2));
-
-console.log(obj.join());
-console.log(2222);
+r = zip([1, 3], [2, 4], (x, y) => x + y);
+console.log(r);

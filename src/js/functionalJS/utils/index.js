@@ -35,6 +35,34 @@ const filter = (array, fn) => {
   return results;
 };
 
+const concatAll = (array, fn) => {
+  let results = [];
+  for (const value of array) results.push.apply(results, value);
+
+  return results;
+};
+
+const reduce = (array, fn, initialValue) => {
+  let accumlator;
+
+  if (initialValue != undefined) accumlator = initialValue;
+  else accumlator = array[0];
+
+  for (const value of array) accumlator = fn(accumlator, value);
+
+  return [accumlator];
+};
+
+const zip = (leftArr, rightArr, fn) => {
+  let index,
+    results = [];
+
+  for (index = 0; index < Math.min(leftArr.length, rightArr.length); index++)
+    results.push(fn(leftArr[index], rightArr[index]));
+
+  return results;
+};
+
 const curry = (fn) => {
   return function curriedFn(...args) {
     if (args.length < fn.length) {
@@ -125,6 +153,9 @@ exports.unless = unless;
 exports.times = times;
 exports.filter = filter;
 exports.map = map;
+exports.concatAll = concatAll;
+exports.reduce = reduce;
+exports.zip = zip;
 exports.simpleCompose = simpleCompose;
 exports.compose = compose;
 exports.curry = curry;
