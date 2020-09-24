@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>margin</title>
+    <style>
+      .wrapper {
+        max-width: 1200px;
+        width: 95%;
+        margin: 0 auto;
+      }
+      .section {
+        background: #f0f0f0;
+        margin-bottom: 16px;
+      }
+      .tag {
+        color: #1890ff;
+      }
+      .comment {
+        position: absolute;
+        width: 6em;
+        margin-left: -9em;
+        margin-top: -2em;
+        background: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <section>
+        <h2>margin absolute</h2>
+        <p class="tag">与使用相对定位很像</p>
+        <div>
+          <p>
+            some text some text some text some text some text some text some
+            text some text some text some text some text some text some text
+          </p>
+          <aside class="comment">this is comment text ...</aside>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

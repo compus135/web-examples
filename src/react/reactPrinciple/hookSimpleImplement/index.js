@@ -1,5 +1,6 @@
 let workInProgressHook;
 let isMount = true;
+let count = 2;
 
 const fiber = {
   memoizedState: null,
@@ -25,8 +26,10 @@ function dispatchAction(queue, action) {
     queue.pending.next = update;
   }
   queue.pending = update;
-
-  schedule();
+  count--;
+  if (count === 0) {
+    schedule();
+  }
 }
 
 function useState(initialState) {
@@ -69,13 +72,17 @@ function useState(initialState) {
 }
 
 function App() {
+  console.log(fiber.memoizedState);
+
   const [num, updateNum] = useState(0);
+  // const [age, updateAge] = useState(0);
 
   console.log(`${isMount ? "mount" : "update"} num: `, num);
 
   return {
     click() {
       updateNum((num) => num + 1);
+      updateNum((num) => num + 14);
     },
   };
 }

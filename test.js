@@ -1,15 +1,24 @@
-let r;
-function zip(leftArr, rightArr, fn) {
-  let r = [];
-  for (
-    let index = 0;
-    index < Math.min(leftArr.length, rightArr.length);
-    index++
-  ) {
-    r.push(fn(leftArr[index], rightArr[index]));
-  }
-  return r;
-}
+var update = {
+  action: "updateFn",
+  next: null,
+};
+update.next = update;
+var fiber = {
+  memoizedState: {
+    queue: { pending: update },
+    memoizedState: "value",
+    next: null,
+  },
+  stateNode: "App",
+};
 
-r = zip([1, 3], [2, 4], (x, y) => x + y);
-console.log(r);
+var update2 = {
+  action: "updateFn",
+  next: null,
+};
+
+update2.next = fiber.memoizedState.queue.pending;
+
+fiber.memoizedState.queue.pending = update2;
+
+// obj.memoizedState.queue.pending.next = obj.memoizedState.queue.pending;

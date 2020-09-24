@@ -37,6 +37,48 @@
 };
 ```
 
+多个 useState
+
+```
+{
+  memoizedState: {
+    queue: { pending: null },
+    memoizedState: "value",
+    next: {
+      queue: { pending: null },
+      memoizedState: "value",
+      next: null,
+    },
+  },
+  stateNode: "App", //组件
+};
+```
+
+队列有 1 个更新
+
+```
+update = {
+  action: "updateFn",
+  next: null,
+};
+update.next = update;
+
+fiber = {
+  memoizedState: {
+    queue: { pending: update },
+    memoizedState: "value",
+    next: null,
+  },
+  stateNode: "App",
+};
+```
+
+队列有 2 个更新
+
+```
+ update2 -> update1 -> update2
+```
+
 - workInProgressHook
   组件渲染前的数据结构 fiber.memoizedState，会赋值给中间变量 hook
 
