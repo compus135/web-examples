@@ -13,6 +13,16 @@
 
 2. useState 最简实现
 
+考虑如下例子：
+
+```
+function App() {
+  const [num, updateNum] = useState(0);
+
+  return <p onClick={() => updateNum(num => num + 1)}>{num}</p>;
+}
+```
+
 - 每个组件都有一个 fiber 与之关联
 - fiber 结构
   初始值：
