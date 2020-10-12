@@ -19,4 +19,13 @@ async function fn3() {
   console.log("next");
 }
 
-fn();
+async function fn4() {
+  await Promise.resolve("resolve");
+  console.log("next");
+}
+async function test() {
+  await fn4();
+  console.log(1);
+}
+
+test();
