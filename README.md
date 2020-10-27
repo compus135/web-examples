@@ -18,6 +18,24 @@
 
 response content-type:octet-stream 客户端采用 a 标签下载；Content-Type: application/json;charset=UTF-8，可以使用 createObjectUrl 生成 bob url,然后用 a 标签下载。
 
+# 性能优化
+
+## dom 操作
+
+1. DocumentFragment, DocumentFragment 不是真实 dom 树的一部分，它的变化不会触发 DOM 的重新渲染。
+
+```
+let ul = document.getElementById("root");
+const fragment = document.createDocumentFragment();
+
+for (let index = 0; index < total; index++) {
+  let li = document.createElement("li");
+  li.innerText = index;
+  fragment.appendChild(li);
+}
+ul.appendChild(fragment);
+```
+
 # 每日一题
 
 1. 介绍下 webpack，并说下构建流程

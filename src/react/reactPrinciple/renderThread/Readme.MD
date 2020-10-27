@@ -1,0 +1,31 @@
+# 一次渲染所有数据
+
+将所有数据一次插入到页面中：
+
+```
+let now = Date.now();
+const total = 100000;
+let ul = document.getElementById("root");
+for (let index = 0; index < total; index++) {
+  let li = document.createElement("li");
+  li.innerText = index;
+  ul.appendChild(li);
+}
+
+console.log("js运行时间：", Date.now() - now);
+setTimeout(() => {
+  console.log("总运行时间：", Date.now() - now);
+}, 0);
+//js运行时间： 255
+//总运行时间： 4648
+
+```
+
+渲染流程：浏览器先调度 js 线程执行 js 代码，然后调度渲染线程进行渲染
+
+# 使用setTime
+渲染流程：
+1. js线程执行整体代码script，将setTimeout回调放入宏任务中；
+2. js整体代码执行完，从宏任务中选择setTimeout回调执行；
+3. 检查时间片是否到了，如果到了执行渲染线程，否则从宏任务中选择setTimeout回调执行；
+4. 
