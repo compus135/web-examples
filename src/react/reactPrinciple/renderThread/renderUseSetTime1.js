@@ -1,6 +1,6 @@
 const now = Date.now();
 const total = 100000;
-const count = 10000;
+const count = 25;
 const ul = document.getElementById("root");
 for (let index = 0; index < total / count; index++) {
   setTimeout(() => {

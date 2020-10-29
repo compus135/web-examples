@@ -1,19 +1,22 @@
 const now = Date.now();
 const total = 100000;
-const count = 10000;
+const count = 25;
 const ul = document.getElementById("root");
-for (let index = 0; index < total / count; index++) {
+function loop(times) {
+  if (times === 0) {
+    return;
+  }
   setTimeout(() => {
     for (let j = 0; j < count; j++) {
       const li = document.createElement("li");
-      li.innerText = index * count + j;
+      li.innerText = (total / count - times) * count + j;
       ul.appendChild(li);
     }
-    console.log(`setTimeout ${index} 开始时间：`, Date.now() - now);
+
+    loop(times - 1);
   }, 0);
 }
 
+loop(total / count);
+
 console.log("js运行时间：", Date.now() - now);
-setTimeout(() => {
-  console.log("总运行时间：", Date.now() - now);
-}, 0);
