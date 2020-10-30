@@ -1,22 +1,22 @@
 function loadData() {
-  const ul = document.getElementById("ul");
+  const ul = document.getElementById("root");
   let total = 10000;
-  let once = 20;
-  let pageCount = total / once
+  let pageSize = 20;
+  let pageCount = total / pageSize;
 
   function loop(page) {
     if (page >= pageCount) {
       return;
     }
     window.requestAnimationFrame(function () {
-      for (let index = 0; index < once; index++) {
+      for (let index = 0; index < pageSize; index++) {
         const tmpDom = document.createElement("li");
-        tmpDom.innerHTML = page * once + index ;
+        tmpDom.innerHTML = page * pageSize + index;
         ul.appendChild(tmpDom);
       }
-      page++
-      loop(page)
+      page++;
+      loop(page);
     });
   }
-  loop(0)
+  loop(0);
 }

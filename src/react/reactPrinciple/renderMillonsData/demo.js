@@ -1,31 +1,22 @@
 function loadData() {
-  //需要插入的容器
-  let ul = document.getElementById("ul");
-  // 插入十万条数据
-  let total = 100000;
-  // 一次插入 20 条
-  let once = 20;
-  //总页数
-  let page = total / once;
-  //每条记录的索引
-  let index = 0;
-  //循环加载数据
-  function loop(curTotal, curIndex) {
-    if (curTotal <= 0) {
-      return false;
+  const ul = document.getElementById("root");
+  let total = 10000;
+  let pageSize = 20;
+  let pageCount = total / pageSize;
+
+  function loop(page) {
+    if (page >= pageCount) {
+      return;
     }
-    //每页多少条
-    let pageCount = Math.min(curTotal, once);
-    setTimeout(() => {
-      for (let i = 0; i < pageCount; i++) {
-        let li = document.createElement("li");
-        li.innerText = curIndex + i + " : " + ~~(Math.random() * total);
-        ul.appendChild(li);
+    window.requestAnimationFrame(function () {
+      for (let index = 0; index < pageSize; index++) {
+        const tmpDom = document.createElement("li");
+        tmpDom.innerHTML = page * pageSize + index;
+        ul.appendChild(tmpDom);
       }
-
-      loop(curTotal - pageCount, curIndex + pageCount);
-    }, 0);
+      page++;
+      loop(page);
+    });
   }
-
-  loop(total, index);
+  loop(0);
 }

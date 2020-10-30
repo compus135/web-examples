@@ -13,5 +13,5 @@ function test() {
     });
   }
 
-  loop(10);
+  loop(60);
 }
