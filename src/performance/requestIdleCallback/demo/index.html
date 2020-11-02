@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <!-- Learn about this code on MDN: https://developer.mozilla.org/en-US/docs/Web/API/Background_Tasks_API -->
+
+    <p>
+      Demonstration of using
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/Background_Tasks_API"
+      >
+        cooperatively scheduled background tasks</a
+      >
+      using the <code>requestIdleCallback()</code>
+      method.
+    </p>
+
+    <div class="container">
+      <div class="label">Decoding quantum filament tachyon emissions...</div>
+      <progress id="progress" value="0"></progress>
+      <div class="button" id="startButton">Start</div>
+      <div class="label counter">
+        Task <span id="currentTaskNumber">0</span> of
+        <span id="totalTaskCount">0</span>
+      </div>
+    </div>
+
+    <div class="logBox">
+      <div class="logHeader">Log</div>
+      <div id="log"></div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
