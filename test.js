@@ -1,6 +1,4 @@
-document.body.style = "background:blue";
-console.log(1);
-setTimeout(function () {
-  document.body.style = "background:black";
-  console.log(2);
-}, 0);
+"use strict";
+exports.__esModule = true;
+var lodash_1 = require("lodash");
+var a = lodash_1["default"].isPlainObject(1);
