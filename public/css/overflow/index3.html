@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    
+    <style>
+      div {
+        box-sizing: border-box;
+      }
+      .container {
+        padding: 20px;
+        background-color: red;
+        height: 500px;
+        flex-direction: column;
+        display: flex;
+      }
+      .inner1 {
+        background-color: yellow;
+        height: 100px;
+      }
+      .a {
+        background-color: green;
+        flex-grow: 1;
+        padding: 10px;
+        overflow: hidden;
+      }
+      .a-child {
+        background-color: #999;
+        height: 100%;
+        padding: 10px;
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="inner1"></div>
+      <div class="a">
+        <div class="a-child">
+          fd<br />fd<br />fd<br />fd<br />fd<br />fd<br />fd<br />fd<br />fd<br />fd<br />fd<br />fd<br />fd<br />
+          fd<br />fd<br />fd<br />fd<br />fd<br />fd<br />fd<br />fd<br />fd<br />fd<br />fd<br />fd<br />fd<br />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
