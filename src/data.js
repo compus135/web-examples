@@ -19,4 +19,8 @@ const studentList = [
   },
 ];
 
-export { studentList };
+const studentInfo = {
+  desp: "He is a good studuent...",
+};
+
+export { studentList, studentInfo };

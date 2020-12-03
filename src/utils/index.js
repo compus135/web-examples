@@ -13,13 +13,13 @@ function subStringIndex(subString, parentString, num) {
   return subStringIndex;
 }
 
-function request({ resolveData, rejectData, delay = 1000 }) {
+function request({ requestData, resolveData, rejectData, delay = 1000 }) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (resolveData) {
-        resolve(resolveData);
+        resolve({ requestData, resolveData });
       } else if (rejectData) {
-        reject(rejectData);
+        reject({ requestData, rejectData });
       }
     }, delay);
   });

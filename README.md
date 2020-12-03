@@ -36,6 +36,10 @@ for (let index = 0; index < total; index++) {
 ul.appendChild(fragment);
 ```
 
+# 实践
+
+1. 添加反向数据流 `react/inverseDataFlow`
+
 # 每日一题
 
 1. 介绍下 webpack，并说下构建流程
