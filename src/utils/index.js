@@ -14,6 +14,7 @@ function subStringIndex(subString, parentString, num) {
 }
 
 function request({ requestData, resolveData, rejectData, delay = 1000 }) {
+  console.log(`request---${requestData}`);
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (resolveData) {

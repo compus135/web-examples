@@ -1,4 +1,17 @@
-"use strict";
-exports.__esModule = true;
-var lodash_1 = require("lodash");
-var a = lodash_1["default"].isPlainObject(1);
+import React, { Component } from 'react';
+
+class test extends Component {
+    componentDidUpdate(prevProps, prevState) {
+        
+    }
+    
+    render() {
+        return (
+            <div>
+                
+            </div>
+        );
+    }
+}
+
+export default test;
