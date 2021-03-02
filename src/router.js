@@ -7,7 +7,7 @@ import DynamicRouter from "./react/components/compflex/DynamicRouter/index";
 import ReComputeInRender from "./react/bestPractice/state/recomputeData/ReComputeInRender";
 import ReComputeInRenderUseMemoize from "./react/bestPractice/state/recomputeData/ReComputeInRenderUseMemoization";
 import AsyncComponentDidMount from "./react/apiReference/component/componentDidMount/Async";
-import Test from "./react/inverseDataFlow/App";
+import Test from "./test/Test";
 import UnControlledComponentWithKeyAsync from "./react/bestPractice/state/resetStateWhenPropChange/UnControlledComponentWithKeyAsync";
 import UnControlledComponentWithKey from "./react/bestPractice/state/resetStateWhenPropChange/UnControlledComponentWithKey";
 import FullyControlledComponent from "./react/bestPractice/state/resetStateWhenPropChange/FullyControlledComponent";
