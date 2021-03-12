@@ -1,41 +1,38 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 class Test extends React.Component {
-  handleFocus = () => {
-    console.log(this.getCount());
+  state = { flag: 0 };
+  handleClick = () => {
+    this.setState((preState) => ({ flag: !preState.flag }));
   };
-  countWatcher = (getCount) => (this.getCount = getCount);
   render() {
+    const { flag } = this.state;
     return (
       <div>
-        <Child countWatcher={this.countWatcher}></Child>
-        <button onClick={this.handleFocus}>focus</button>
+        <button onClick={this.handleClick}>reset</button>
+        <Child flag={flag} />
       </div>
     );
   }
 }
 
-function Child(props) {
-  const [count, setCount] = useState(0);
-
-  const handleClick = () => {
-    setCount((preState) => preState + 1);
+class Child extends React.Component {
+  state = { count: 0 };
+  handleClick = () => {
+    this.setState((preState) => ({ count: preState.count + 1 }));
   };
+  componentDidUpdate(prevProps, prevState) {
+    prevProps.flag !== this.props.flag && this.setState({ count: 0 });
+  }
 
-  const { countWatcher } = props;
-  useEffect(() => {
-    const getCount = () => {
-      return count;
-    };
-    countWatcher(getCount);
-  }, [countWatcher, count]);
-
-  return (
-    <div>
-      {count}
-      <button onClick={handleClick}>INCREASE</button>
-    </div>
-  );
+  render() {
+    const { count } = this.state;
+    return (
+      <div>
+        {count}
+        <button onClick={this.handleClick}>increase</button>
+      </div>
+    );
+  }
 }
-
 export default Test;
