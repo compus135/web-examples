@@ -20,3 +20,5 @@ ul {
 ul > li.active {
   background: #666;
 }
+
+@import "~antd/dist/antd.css";
