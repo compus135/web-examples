@@ -14,6 +14,10 @@
 
 调用这个方法的对象
 
+### 对象
+
+1. 获取对象属性： getOwnPropertyNames //自身所有属性；Object.keys // 自身可枚举；for in // 所有可枚举包括继承的
+
 ## http
 
 response content-type:octet-stream 客户端采用 a 标签下载；Content-Type: application/json;charset=UTF-8，可以使用 createObjectUrl 生成 bob url,然后用 a 标签下载。
