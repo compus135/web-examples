@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- 
+    1. 通过window.frames[frame name]获取iframe元素
+    2. iframe.parent 返回上层窗口
+    3. iframe.top 返回顶层窗口
+    4. iframe.document 返回文档对象
+
+
+ -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <iframe src="./zzz.html" frameborder="0" name="iframe1"></iframe>
+    <script>
+      window.onload = function () {
+        var iframe1 = window.frames["iframe1"];
+        var r = iframe1.document.getElementById("pwd");
+        console.log(r);
+        // var r = iframe1.document.getElementById("zzz");
+        // console.log(r);
+        // console.log(iframe1.parent === window);
+      };
+    </script>
+  </body>
+</html>
