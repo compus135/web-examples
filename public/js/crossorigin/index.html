@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <!-- 
+    1. window.postMessage(message,targetOrigin)可以安全的跨源通信
+    2. 通常不同页面的脚本只有同源才能相互通信
+    3. targetOrigin指定哪些窗口能接受到消息事件
+   -->
+  <body>
+    parent window
+    <iframe src="./test.html" frameborder="0" id="iframe1"></iframe>
+    <script>
+      window.onload = () => {
+        var iframe1 = window.document.querySelector("#iframe1").contentWindow;
+        iframe1.postMessage("this is a message...", "http://localhost:5000");
+      };
+    </script>
+  </body>
+</html>
