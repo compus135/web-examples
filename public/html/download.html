@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- 
+  1. Content-Disposition
+  2. download属性可用于指定下载的文件名
+  3. new Blob([content],type)      
+  4. href是一张图片资源的话，默认是直接打开，如果要下载需要指定download属性
+  5. 后台配置header信息实现下载
+  6. content-type: application/octet-stream;charset=UTF-8
+
+  参考
+  https://www.zhangxinxu.com/wordpress/2016/04/know-about-html-download-attribute/
+  https://www.zhangxinxu.com/wordpress/2017/07/js-text-string-download-as-html-json-file/
+  https://www.zhangxinxu.com/wordpress/2018/02/crossorigin-canvas-getimagedata-cors/
+  https://blog.csdn.net/w36680130/article/details/106469010
+ -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function downloadFile(data, fileName) {
+        const blob = new Blob([data]);
+        const link = document.createElement("a");
+        const url = URL.createObjectURL(blob);
+        link.setAttribute("href", url);
+        link.setAttribute("download", fileName);
+        link.style.visibility = "hidden";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    </script>
+  </body>
+</html>
