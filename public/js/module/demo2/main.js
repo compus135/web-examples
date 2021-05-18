@@ -1,0 +1,1 @@
+(()=>{"use strict";var o="bar";console.log("lib"),setTimeout((()=>{console.log(o)}),500),console.log("index"),console.log(o),setTimeout((()=>{console.log(o)}),500)})();
