@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .item {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+        描述下React Diff算法
+
+        虚拟DOM是一个对象，通过这个对象可以创建真实DOM，
+        React组件渲染时会得到一个虚拟DOM,
+        当通过setState等方法重新渲染后会得到一个新的虚拟DOM，
+        通过DOM Diff算法比较新旧虚拟DOM的差异得到patches，
+        根据patches和旧的真实DOM进行必要的DOM操作，更新真实DOM。
+
+        React通过createElement创建虚拟DOM,
+        虚拟DOM对象有`type`,`props`,`children`三个属性。
+
+        可以根据虚拟DOM创建真实DOM并渲染
+
+        组件重新渲染会生成新的虚拟DOM，
+        通过DOM diff算法比较两个对象差异patches,
+        对象比较采用如下策略：
+        同层节点进行比较；
+        类型不同则替换节点，子节点不再比较；
+        
+        采用先根深度遍历，遍历的序号作为节点的唯一标识，并记下该节点的patch
+        节点类型都是字符串，如果字符串不等则patch={type:'TEXT',newNode},
+        节点类型相同且有子组件，则比较属性，然后递归遍历子组件，
+        节点类型不同则patch={type:'REPLACE',newNode},
+        新虚拟DOM对应节点不存在，path={type:'REMOVE'}
+
+
+        根据patches给真实DOM打补丁，
+        采用先根深度遍历真实DOM，根据遍历序号找对应节点的补丁，
+        如果有补丁则操作DOM打上补丁
+
+        - 先根深度遍历虚拟DOM节点生成patches；
+        - patches的key是遍历的序号；
+        - 先根深度遍历真实DOM节点，如果有patch则操作DOM
+    -->
+    <script src="./index.js" type="module"></script>
+  </body>
+</html>
