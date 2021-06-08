@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="parent">
+      <div id="child">test</div>
+    </div>
+    <script>
+      const parent = document.getElementById("parent");
+      const child = document.getElementById("child");
+      document.addEventListener(
+        "click",
+        (event) => {
+          console.log("document 捕获");
+        },
+        true
+      );
+      parent.addEventListener(
+        "click",
+        (event) => {
+          console.log("parent 捕获");
+        },
+        true
+      );
+      child.addEventListener(
+        "click",
+        (event) => {
+          console.log("child 捕获");
+        },
+        true
+      );
+      document.addEventListener("click", (event) => {
+        console.log("document 冒泡");
+      });
+      parent.addEventListener("click", (event) => {
+        console.log("parent 冒泡");
+      });
+      child.addEventListener("click", (event) => {
+        console.log("child 冒泡");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="parent">
+      <div id="child">事件顺序</div>
+    </div>
+    <script>
+      const parent = document.getElementById("parent");
+      const child = document.getElementById("child");
+
+      function dispatchEvent(event) {
+        const paths = [];
+        let path = event.target;
+        while (path) {
+          paths.push(path);
+          path = path.parentNode;
+        }
+        for (let index = paths.length - 1; index >= 0; index--) {
+          const path = paths[index];
+          path.onClickCapture && path.onClickCapture();
+        }
+        for (let index = 0; index <= paths.length - 1; index++) {
+          const path = paths[index];
+          path.onClick && path.onClick();
+        }
+      }
+      
+      document.addEventListener("click", dispatchEvent);
+      parent.onClick = () => {
+        console.log("parent React 冒泡");
+      };
+      parent.onClickCapture = () => {
+        console.log("parent React 捕获");
+      };
+      child.onClick = () => {
+        console.log("child React 冒泡");
+      };
+      child.onClickCapture = () => {
+        console.log("child React 捕获");
+      };
+    </script>
+  </body>
+</html>

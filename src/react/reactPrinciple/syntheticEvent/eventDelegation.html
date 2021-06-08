@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="list">
+      <li id="item1">第 1 项</li>
+      <li id="item2">第 2 项</li>
+      <li id="item3">第 3 项</li>
+    </ul>
+    <script>
+      const parent = document.getElementById("list");
+
+      parent.addEventListener("click", (event) => {
+        switch (event.target.id) {
+          case "item1":
+            console.log("第 1 项");
+            break;
+          case "item2":
+            console.log("第 2 项");
+            break;
+          case "item3":
+            console.log("第 3 项");
+            break;
+          default:
+            break;
+        }
+      });
+    </script>
+  </body>
+</html>
