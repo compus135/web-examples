@@ -4,7 +4,7 @@
  * @param {*} parentString 父字符串
  * @param {*} num 第几次出现
  */
-function subStringIndex(subString, parentString, num) {
+export function subStringIndex(subString, parentString, num) {
   let subStringIndex = -1;
   for (let index = 0; index < num; index++) {
     subStringIndex = parentString.indexOf(subString, subStringIndex + 1);
@@ -13,7 +13,12 @@ function subStringIndex(subString, parentString, num) {
   return subStringIndex;
 }
 
-function request({ requestData, resolveData, rejectData, delay = 1000 }) {
+export function request({
+  requestData,
+  resolveData = "suc",
+  rejectData = "fail",
+  delay = 1000,
+}) {
   console.log(`request---${requestData}`);
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -26,4 +31,7 @@ function request({ requestData, resolveData, rejectData, delay = 1000 }) {
   });
 }
 
-export { subStringIndex, request };
+export function delay(ms) {
+  const end = Date.now() + ms;
+  while (Date.now() < end) {}
+}
