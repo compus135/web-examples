@@ -1,3 +1,12 @@
+## useState
+
+父组件只提供初始值，子组件维护内部状态
+
+```
+const [name, setName] = useState(props.name);
+// 首次渲染时 name 取决于 props.name, props.name 再次发生变化时 name 不变
+```
+
 ## useMemo
 
 使用场景：
