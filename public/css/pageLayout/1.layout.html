@@ -1,0 +1,47 @@
+<!-- 两栏布局 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 
+        抵消最外侧的空距：0 -8px;
+        */
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -8px;
+      }
+      .row-50 > * {
+        width: 50%;
+      }
+      /* 
+        空距：0 8px 16px;
+        */
+      .col {
+        padding: 0 8px 16px;
+        box-sizing: border-box;
+        border: 1px dashed red;
+      }
+
+      .content {
+        height: 200px;
+        background: #000;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="row row-50">
+      <div class="col">
+        <div class="content">content</div>
+      </div>
+      <div class="col">
+        <div class="content">content</div>
+      </div>
+    </div>
+  </body>
+</html>
