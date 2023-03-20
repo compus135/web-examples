@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="addEntry()">add entry</button>
+    <button onclick="replaceEntry()">replace entry</button>
+    <button onclick="back()">back</button>
+    <button onclick="go()">go</button>
+
+    <script>
+      history.pushState = function () {
+        const result = history.pushState.apply(null, arguments);
+        history.onpushstate({});
+        return result;
+      };
+      history.onpushstate = window.onpopstate = function (event) {
+        console.log(
+          "location: " +
+            document.location +
+            ", state: " +
+            JSON.stringify(event.state)
+        );
+      };
+      function addEntry() {
+        history.pushState({ page: 1 }, "title 1", "?page=1");
+        history.pushState({ page: 2 }, "title 2", "?page=2");
+      }
+      function replaceEntry() {
+        history.replaceState({ page: 3 }, "title 3", "?page=3");
+      }
+      function back() {
+        history.back();
+      }
+      function go() {
+        history.go(1);
+      }
+    </script>
+  </body>
+</html>
+<!-- 
+  点击addEntry, history = [path,path?page=1,path?page=2]
+  点击replaceEntry, history = [path,path?page=1,path?page=3]
+  点击back, history = [path,path?page=1]
+ -->
