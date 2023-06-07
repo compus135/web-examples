@@ -8,6 +8,9 @@ node_modules
 # testing
 coverage/
 
+## 实验性质的
+zz/
+
 # production
 /build
 
