@@ -35,3 +35,21 @@ export function delay(ms) {
   const end = Date.now() + ms;
   while (Date.now() < end) {}
 }
+// 解析url 参数
+export function getUrlParam(param) {
+  const urlParams = new URL(window.location.href).searchParams;
+  const value = urlParams.get(param);
+  console.log(value);
+}
+//跳转到 redirect 参数所在的位置
+export function goRedirectUrl(history) {
+  // 跳转到登录页时带上查询参数
+  // history.replace({
+  //   pathname: '/login',
+  //   search: stringify({
+  //     redirect: pathname + search,
+  //   }),
+  // });
+  const urlParams = new URL(window.location.href).searchParams;
+  history.push(urlParams.get("redirect") || "/");
+}
