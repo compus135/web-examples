@@ -29,6 +29,8 @@ console.log(token.colorText);
 
 ## Card
 
+## Tabs
+
 ## Table
 
 用于展示行列数据。
@@ -46,6 +48,11 @@ table{
   width:1000px; (x)
 }
 ```
+
+## Modal
+
+- 异步关闭：`confirmLoading=== true`显示 loading，否则不显示。
+- 确定按钮：onOk 点击确定回调 function(e)
 
 ## Form
 
@@ -66,6 +73,20 @@ table{
         </Form.Item>
       </Form>
 ```
+
+- form css 结构
+
+```
+form
+  - .ant-form-item
+    - .ant-row
+      - .ant-col
+        - label
+      - .ant-col
+        - .ant-form-item-control-input
+```
+
+- Form.Item 用于表单组件布局(labelCol,wrapperCol)、校验(rules)、双向绑定（name）
 
 ### Select
 
