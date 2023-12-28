@@ -88,9 +88,32 @@ form
 
 - Form.Item 用于表单组件布局(labelCol,wrapperCol)、校验(rules)、双向绑定（name）
 
+- 表单布局：layout='inline'
+
+```
+form (flex)
+  - .ant-form-item (margin-inline-end:16)
+    - .ant-col
+      - label
+    - .ant-col
+      - .ant-form-item-control-input (input 默认有个宽度，select 默认宽度包裹内容，可指定width)
+```
+
 ### Select
 
 - optionRender: 自定义渲染下拉项
+- 布局：默认宽度包裹内容，可指定 width
+
+### Input
+
+- 布局：`width:100%`，原生 input 有个默认宽度。
+
+```
+.ant-input{
+    display: inline-block;
+    width: 100%;
+}
+```
 
 ## FAQ
 
