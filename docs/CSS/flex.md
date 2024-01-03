@@ -1,3 +1,8 @@
+## 容器属性
+
+- flex-wrap: nowrap | wrap 默认所有项目都排在一条轴线上的，当轴线排不下如何换行。`nowrap`不换行，`wrap`换行。
+- gap: 用来设置行列之间的间隙，是 row-gap 和 column-gap 的简写形式。
+
 ## 项目属性
 
 - flex-grow: 默认为 0 ，即使有剩余空间也不放大。
