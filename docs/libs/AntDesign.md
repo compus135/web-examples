@@ -1,3 +1,7 @@
+## Layout
+
+页面级整体布局。
+
 ## 主题
 
 Ant design 将影响主题的最小元素称之为 Design Token，如 colorText, fontSize 等。
@@ -38,6 +42,7 @@ console.log(token.colorText);
 - 筛选：`filters=[{value,text}]`设置筛选项，`onFilter`触发筛选时会逐个调用 onFilter 函数，其一满足后续就不再调用了，如名字中带有名或明的人，`filterMultiple` 默认为 true。
 - 排序：defaultSortOrder, sorter
 - 固定列：`scroll:x`即 table 最小宽度为 x。父容器大于 x，则 table 宽度等于父容器宽度，否则 table 宽度等于 x。
+  指定 width 会优先压缩可压缩单元格。
 
 ```css
 .ant-table-content{
@@ -87,6 +92,34 @@ form
 ```
 
 - Form.Item 用于表单组件布局(labelCol,wrapperCol)、校验(rules)、双向绑定（name）
+  Item 可以被包裹\嵌套如：
+
+```
+    <Form>
+      <div>
+        <div>
+          <Form.Item>xxx</Form.Item>
+        </div>
+      </div>
+    </Form>
+
+    <Form.Item label="Username" name="xx">
+      <Space>
+        <Form.Item
+          name="username"
+          noStyle
+          rules={[{ required: true, message: 'Username is required' }]}
+        >
+          <Input style={{ width: 160 }} placeholder="Please input" />
+        </Form.Item>
+        <Tooltip title="Useful information">
+          <Typography.Link href="#API">Need Help?</Typography.Link>
+        </Tooltip>
+      </Space>
+    </Form.Item>
+```
+
+Form.Item 嵌套子组件后，不更新表单值，可以通过 HOC 自定义组件形式来解决这个问题
 
 - 表单布局：layout='inline'
 
@@ -97,6 +130,86 @@ form (flex)
       - label
     - .ant-col
       - .ant-form-item-control-input (input 默认有个宽度，select 默认宽度包裹内容，可指定width)
+```
+
+- 嵌套结构
+
+```
+<Form.Item
+      name={['user', 'name']}
+      label="Name"
+      rules={[{ required: true }]}
+    >
+      <Input />
+    </Form.Item>
+```
+
+表单值 values.user.name
+
+- 动态增减表单项 Form.List 封装了增删逻辑，renderProps 自定义表单。
+- 校验与更新依赖，当依赖项变化时会触发校验与更新
+- 表单项的值，直接设置是无效的
+
+```
+// 无效
+      <Form.Item label="Password" name="password" rules={[{ required: true }]}>
+        <Input value={'xxx'} />
+      </Form.Item>
+```
+
+- 动态表单与更新依赖综合应用
+
+```
+import { Button, Form, Input } from 'antd';
+const { useForm } = Form;
+const Test = () => {
+  const [form] = useForm();
+  return (
+    <Form form={form} onFinish={(values) => console.log(values)}>
+      <Form.List name="names">
+        {(fields, { add }) => {
+          return (
+            <>
+              {fields.map(({ key, name, ...rest }) => (
+                <div key={key}>
+                  <Form.Item name={[name, 'rate']} {...rest}>
+                    <Input
+                      onChange={(e) =>
+                        form.setFieldValue(
+                          ['names', name, 'price'],
+                          e.target.value,
+                        )
+                      }
+                    />
+                  </Form.Item>
+                  <Form.Item dependencies={[['names', name, 'rate']]}>
+                    {() => {
+                      return (
+                        <div>
+                          23
+                          <Form.Item name={[name, 'price']} {...rest}>
+                            <Input />
+                          </Form.Item>
+                        </div>
+                      );
+                    }}
+                  </Form.Item>
+                </div>
+              ))}
+              <Button onClick={() => add()}>add</Button>
+            </>
+          );
+        }}
+      </Form.List>
+      <Form.Item>
+        <Button htmlType="submit">submit</Button>
+      </Form.Item>
+    </Form>
+  );
+};
+
+export default Test;
+
 ```
 
 ### Select
